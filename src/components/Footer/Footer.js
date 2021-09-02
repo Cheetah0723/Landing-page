@@ -33,26 +33,18 @@ export default function Footer() {
             <h3 class="footer__title">Support</h3>
 
             <ul class="footer__links">
-              <li>
-                <a href="#" class="footer__link">
-                  Product help
-                </a>
-              </li>
-              <li>
-                <a href="#" class="footer__link">
-                  Register
-                </a>
-              </li>
-              <li>
-                <a href="#" class="footer__link">
-                  Updates
-                </a>
-              </li>
-              <li>
-                <a href="#" class="footer__link">
-                  Provides
-                </a>
-              </li>
+              {FooterSection[1].support.map((item) => {
+                const { name, route } = item;
+                return (
+                  <>
+                    <li>
+                      <a href={route} class="footer__link">
+                        {name}
+                      </a>
+                    </li>
+                  </>
+                );
+              })}
             </ul>
           </div>
 
