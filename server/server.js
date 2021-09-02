@@ -5,19 +5,21 @@ const app = express();
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
-
-app.use(cors());
+app.use("/public", express.static(process.env.PWD + "/public"));
 
 app.use(express.json());
 
-// mongoose.connect(
-//     "mongodb+srv://epsybsu:nikanikonika@cluster0.un7ei.mongodb.net/epsybsu?retryWrites=true&w=majority",
-//     {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     }
-//   );
+
+mongoose.connect(
+    "mongodb+srv://giga:vivomini@rest.nl9di.mongodb.net/rest?retryWrites=true&w=majority",
+    () => {
+      console.log('Connected TO Database')
+    },
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  );
 
 // routes
 /* example:
@@ -25,8 +27,11 @@ app.use(express.json());
     app.use("/api", AboutChange);
 */
 
-const PORT = 3001;
+const Subscribers = require('./router/subscribers/SubscribersRouter');
+app.use('/api', Subscribers);
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log("server listen 3001 port");
+  console.log(`server listen ${PORT}`);
 });
