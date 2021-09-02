@@ -3,10 +3,33 @@ import {
   FooterSection,
   FooterSocialNetwork,
 } from "../../fixtures/footer/FooterFixtures";
+import Alert from "@material-ui/lab/Alert";
+// import { makeStyles } from "@material-ui/core/styles";
 
 export default function Footer() {
+  // const useStyles = makeStyles((theme) => ({
+  //   root: {
+  //     width: '100%',
+  //     '& > * + *': {
+  //       marginTop: theme.spacing(2),
+  //     },
+  //   },
+  // }));
+  const [input, setInput] = React.useState("");
+  const [inputError, setInputError] = React.useState(false);
+  const identification = () => {
+    if (!input) {
+      setInputError(true);
+    } else {
+      setInputError(false);
+    }
+  };
+  // const classes = useStyles();
   return (
     <>
+      <Alert severity="error" is-active={inputError && "true"}>
+        Please enter a Email
+      </Alert>
       <footer class="footer section">
         <div class="footer__container container grid">
           <a href="#" class="footer__logo">
@@ -52,9 +75,12 @@ export default function Footer() {
           </div>
 
           <div class="footer__content">
-            <form action="" class="footer__form">
+            <form onSubmit={(e) => e.preventDefault()} class="footer__form">
               <input type="email" placeholder="Email" class="footer__input" />
-              <button class="button button--flex">
+              <button
+                class="button button--flex"
+                onClick={() => identification()}
+              >
                 <i class="ri-send-plane-line button__icon"></i> Subscribe
               </button>
             </form>
