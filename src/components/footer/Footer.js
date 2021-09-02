@@ -7,6 +7,7 @@ import Alert from "@material-ui/lab/Alert";
 // import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import env from "../../application/environment/env.json";
+import Swal from "sweetalert2";
 
 export default function Footer() {
   // const useStyles = makeStyles((theme) => ({
@@ -54,8 +55,10 @@ export default function Footer() {
         })
         .then((res) => {
           if (res.data.success) {
-            alert(1);
+            Swal.fire("Good Job!", "Your email saved", "success");
           }
+          document.body.style.overflowY = "scroll";
+          setSpinner(false);
         });
     }
   };
