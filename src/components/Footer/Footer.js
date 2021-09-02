@@ -75,11 +75,7 @@ export default function Footer() {
         </div>
 
         <p class="footer__copy">
-          <a
-            href="https://www.youtube.com/c/Bedimcode/"
-            target="_blank"
-            class="footer__copy-link"
-          >
+          <a href="#" target="_blank" class="footer__copy-link">
             &#169; Beats. All right reserved
           </a>
         </p>
