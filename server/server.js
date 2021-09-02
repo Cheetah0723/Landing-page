@@ -13,7 +13,7 @@ app.use(express.json());
 mongoose.connect(
   "mongodb+srv://giga:vivomini@rest.nl9di.mongodb.net/rest?retryWrites=true&w=majority",
   () => {
-    console.log("Connected TO Database");
+    console.log("database is connected");
   },
   {
     useNewUrlParser: true,

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header/Header";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/footer/Footer";
 import Sponsors from "../../components/sponsors/Sponsors";
 
 export default function IndexPages() {
