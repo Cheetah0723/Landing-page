@@ -12,7 +12,7 @@ function App() {
       setApplication(res.data.data);
       console.log(res.data.data);
     });
-  });
+  }, []);
   return (
     <>
       <ApplicationContext.Provider value={{ application, setApplication }}>
