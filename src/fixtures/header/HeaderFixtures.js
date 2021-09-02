@@ -2,7 +2,6 @@ export const HeaderFixtures = [
   {
     text: "Home",
     route: "#home",
-    active: true,
   },
   {
     text: "Specs",
