@@ -2,6 +2,19 @@ import React from "react";
 import { HeaderFixtures } from "../../fixtures/header/HeaderFixtures";
 
 export default function Header() {
+  const renderClassNames = (item) => {
+    if (item.route == window.location.hash) {
+      return "nav__link active-link";
+    } else {
+      return "nav__link";
+    }
+  };
+  React.useEffect(() => {
+    if (window.location.hash == "") {
+      window.location.hash = "#home";
+      window.scrollTo(1, 1);
+    }
+  });
   return (
     <>
       <header class="header" id="header">
@@ -15,8 +28,8 @@ export default function Header() {
               {HeaderFixtures.map((item) => {
                 return (
                   <>
-                    <li class="nav__item">
-                      <a href={item.route} class="nav__link active-link">
+                    <li className="nav__item">
+                      <a href={item.route} className={renderClassNames(item)}>
                         {item.text}
                       </a>
                     </li>
