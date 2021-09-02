@@ -17,17 +17,42 @@ export default function Footer() {
   // }));
   const [input, setInput] = React.useState("");
   const [inputError, setInputError] = React.useState(false);
+  const [inputErrorMessage, setInputErrorMessage] = React.useState("");
   const identification = () => {
     if (!input) {
       setInputError(true);
+      setInputErrorMessage("გთხოვთ შეიყვანოთ ელ.ფოსტა");
+    } else if (
+      !/([a-zA-Z0-9]+)([\_\.\-{1}])?([a-zA-Z0-9]+)\@([a-zA-Z0-9]+)([\.])([a-zA-Z\.]+)/g.test(
+        input
+      )
+    ) {
+      setInputError(true);
+      setInputErrorMessage("არასწორი ელ.ფოსტა");
     } else {
+      setInputErrorMessage("");
       setInputError(false);
     }
   };
   // const classes = useStyles();
   return (
     <>
-      <Alert severity="error">Please enter a Email</Alert>
+      {inputError && (
+        <Alert
+          severity="error"
+          style={{
+            fontFamily: "MarkGEO",
+            fontSize: "12px",
+            width: "295px",
+            position: "fixed",
+            top: "15px",
+            right: "10px",
+            zIndex: "999",
+          }}
+        >
+          {inputErrorMessage}
+        </Alert>
+      )}
       <footer class="footer section">
         <div class="footer__container container grid">
           <a href="#" class="footer__logo">
@@ -73,8 +98,21 @@ export default function Footer() {
           </div>
 
           <div class="footer__content">
-            <form onSubmit={(e) => e.preventDefault()} class="footer__form">
-              <input type="email" placeholder="Email" class="footer__input" />
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className={
+                inputError
+                  ? "footer__form error__input__border"
+                  : "footer__form"
+              }
+            >
+              <input
+                type="text"
+                placeholder="Email"
+                class="footer__input"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+              />
               <button
                 class="button button--flex"
                 onClick={() => identification()}
