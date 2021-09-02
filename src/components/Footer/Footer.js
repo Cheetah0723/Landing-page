@@ -1,5 +1,8 @@
 import React from "react";
-import { FooterSection } from "../../fixtures/footer/FooterFixtures";
+import {
+  FooterSection,
+  FooterSocialNetwork,
+} from "../../fixtures/footer/FooterFixtures";
 
 export default function Footer() {
   return (
@@ -57,27 +60,16 @@ export default function Footer() {
             </form>
 
             <div class="footer__social">
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                class="footer__social-link"
-              >
-                <i class="ri-facebook-fill"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                class="footer__social-link"
-              >
-                <i class="ri-instagram-line"></i>
-              </a>
-              <a
-                href="https://twitter.com/"
-                target="_blank"
-                class="footer__social-link"
-              >
-                <i class="ri-twitter-line"></i>
-              </a>
+              {FooterSocialNetwork.map((item) => {
+                const { icon, route } = item;
+                return (
+                  <>
+                    <a href={route} target="_blank" class="footer__social-link">
+                      <i class={icon}></i>
+                    </a>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -88,7 +80,7 @@ export default function Footer() {
             target="_blank"
             class="footer__copy-link"
           >
-            &#169; Bedimcode. All right reserved
+            &#169; Beats. All right reserved
           </a>
         </p>
       </footer>
