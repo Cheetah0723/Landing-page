@@ -3,7 +3,7 @@ const Products = require("../../schema/products/ProductSchema");
 
 router.route('/products').post(async (req, res) => {
     const Product = new Products({
-        name: req.body.name,
+        title: req.body.title,
         price: req.body.price,
         image: req.body.image
     });
@@ -15,8 +15,6 @@ router.route('/products').post(async (req, res) => {
         res.json({ message: err });
     }
 });
-
-
 
 
 module.exports = router;
