@@ -27,9 +27,7 @@ export default function Footer() {
   // const classes = useStyles();
   return (
     <>
-      <Alert severity="error" is-active={inputError && "true"}>
-        Please enter a Email
-      </Alert>
+      <Alert severity="error">Please enter a Email</Alert>
       <footer class="footer section">
         <div class="footer__container container grid">
           <a href="#" class="footer__logo">
