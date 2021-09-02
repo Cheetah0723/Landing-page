@@ -5,6 +5,8 @@ import {
 } from "../../fixtures/footer/FooterFixtures";
 import Alert from "@material-ui/lab/Alert";
 // import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import env from "../../application/environment/env.json";
 
 export default function Footer() {
   // const useStyles = makeStyles((theme) => ({
@@ -18,6 +20,17 @@ export default function Footer() {
   const [input, setInput] = React.useState("");
   const [inputError, setInputError] = React.useState(false);
   const [inputErrorMessage, setInputErrorMessage] = React.useState("");
+  const [spinner, setSpinner] = React.useState(false);
+  const [date, setDate] = React.useState("");
+  React.useEffect(() => {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
+    var yyyy = today.getFullYear();
+
+    today = dd + "-" + mm + "-" + yyyy;
+    setDate(today);
+  }, []);
   const identification = () => {
     if (!input) {
       setInputError(true);
@@ -32,6 +45,18 @@ export default function Footer() {
     } else {
       setInputErrorMessage("");
       setInputError(false);
+      setSpinner(true);
+      document.body.style.overflowY = "hidden";
+      axios
+        .post(`${env.host}/api/subscriber`, {
+          email: input,
+          date: date,
+        })
+        .then((res) => {
+          if (res.data.success) {
+            alert(1);
+          }
+        });
     }
   };
   // const classes = useStyles();
@@ -52,6 +77,23 @@ export default function Footer() {
         >
           {inputErrorMessage}
         </Alert>
+      )}
+      {spinner && (
+        <>
+          <div id="loading__bg"></div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100vh",
+              position: "fixed",
+              margin: "0 auto",
+            }}
+          >
+            <div id="loading"></div>
+          </div>
+        </>
       )}
       <footer class="footer section">
         <div class="footer__container container grid">
