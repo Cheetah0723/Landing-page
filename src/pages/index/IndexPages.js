@@ -1,9 +1,9 @@
-import React from "react";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import Sponsors from "../../components/sponsors/Sponsors";
-import Home from "../../components/home/Home";
-import Specs from "../../components/specs/Specs";
+import React from 'react'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
+import Sponsors from '../../components/sponsors/Sponsors'
+import Home from '../../components/home/Home'
+import Specs from '../../components/specs/Specs'
 
 export default function IndexPages() {
   return (
@@ -59,7 +59,7 @@ export default function IndexPages() {
 
         <section className="products section" id="products">
           <h2 className="section__title section__title-gradient products__line">
-            აირჩიე <br /> შენი სტილი
+            აირჩიე სტილი
           </h2>
 
           <div className="products__container container grid">
@@ -153,5 +153,5 @@ export default function IndexPages() {
         <i className="ri-arrow-up-s-line scrollup__icon"></i>
       </a>
     </>
-  );
+  )
 }
