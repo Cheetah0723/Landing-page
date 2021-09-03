@@ -445,7 +445,8 @@
 .button--flex,
 .specs.section.grid,
 .case__description,
-.discount.section {
+.discount.section,
+.products__title {
   font-family: "MarkGEO", sans-serif;
 }
 
@@ -456,4 +457,8 @@
 
 .nav__list li a {
   font-size: 14px !important;
+}
+
+.products__card {
+  padding-bottom: 1.5rem;
 }
