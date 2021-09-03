@@ -7,15 +7,20 @@ import env from "./application/environment/env.json";
 
 function App() {
   const [application, setApplication] = React.useState([]);
+  const [notification, setNotification] = React.useState([]);
   React.useEffect(() => {
     axios.post(`${env.host}/api/sponsors`).then((res) => {
       setApplication(res.data.data);
-      console.log(res.data.data);
+    });
+    axios.get(`${env.host}/api/notifications/read`).then((res) => {
+      setNotification(res.data.data);
     });
   }, []);
   return (
     <>
-      <ApplicationContext.Provider value={{ application, setApplication }}>
+      <ApplicationContext.Provider
+        value={{ application, setApplication, notification, setNotification }}
+      >
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={IndexPages} />

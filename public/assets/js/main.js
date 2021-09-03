@@ -73,10 +73,10 @@ sr.reveal(
   `.sponsor, .products__card, .footer__logo, .footer__content, .footer__copy`,
   { origin: "top", interval: 100 }
 );
-sr.reveal(`.specs__data, .discount__animate`, {
+sr.reveal(`.specs__data, .discount`, {
   origin: "left",
   interval: 100,
 });
-sr.reveal(`.specs__img, .discount__img`, { origin: "right" });
+sr.reveal(`.specs__img`, { origin: "right" });
 sr.reveal(`.case__img`, { origin: "top" });
 sr.reveal(`.case__data`);
