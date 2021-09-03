@@ -443,11 +443,11 @@
 .home__description,
 .home__title-description,
 .button--flex,
-.nav__list li,
 .specs.section.grid {
   font-family: "MarkGEO", sans-serif;
 }
 
-.section__title-gradient {
+.section__title-gradient,
+.nav__list li {
   font-family: "MarkGEOCaps", sans-serif;
 }
