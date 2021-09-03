@@ -439,3 +439,21 @@
 .swal2-popup.swal2-modal.swal2-icon-success.swal2-show {
   font-family: MarkGEO;
 }
+
+.home__description,
+.home__title-description,
+.button--flex,
+.specs.section.grid,
+.case__description,
+.discount.section {
+  font-family: "MarkGEO", sans-serif;
+}
+
+.section__title-gradient,
+.nav__list li {
+  font-family: "MarkGEOCaps", sans-serif;
+}
+
+.nav__list li a {
+  font-size: 14px !important;
+}
