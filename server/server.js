@@ -27,6 +27,9 @@ app.use("/api", Sponsors);
 const Products = require("./router/products/ProductsRouter");
 app.use("/api", Products);
 
+const Notifications = require("./router/notifications/NotificationsRouter");
+app.use("/api", Notifications);
+
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
