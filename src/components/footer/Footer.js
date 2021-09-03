@@ -105,7 +105,7 @@ export default function Footer() {
           </a>
 
           <div class="footer__content">
-            <h3 class="footer__title">Products</h3>
+            <h3 class="footer__title">პროდუქტები</h3>
 
             <ul class="footer__links">
               {FooterSection[0].products.map((item) => {
@@ -124,7 +124,7 @@ export default function Footer() {
           </div>
 
           <div class="footer__content">
-            <h3 class="footer__title">Support</h3>
+            <h3 class="footer__title">მხარდაჭერა</h3>
 
             <ul class="footer__links">
               {FooterSection[1].support.map((item) => {
