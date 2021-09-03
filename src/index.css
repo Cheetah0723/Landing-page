@@ -451,3 +451,7 @@
 .nav__list li {
   font-family: "MarkGEOCaps", sans-serif;
 }
+
+.nav__list li a {
+  font-size: 14px !important;
+}
