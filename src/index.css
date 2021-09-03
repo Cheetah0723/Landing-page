@@ -444,7 +444,8 @@
 .home__title-description,
 .button--flex,
 .specs.section.grid,
-.case__description {
+.case__description,
+.discount.section {
   font-family: "MarkGEO", sans-serif;
 }
 
