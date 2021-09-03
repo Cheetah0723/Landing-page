@@ -446,15 +446,18 @@
 .specs.section.grid,
 .case__description,
 .discount.section,
-.products__title {
+.products__title,
+.footer__link {
   font-family: "MarkGEO", sans-serif;
 }
 
 .section__title-gradient,
-.nav__list li {
+.nav__list li,
+.footer__title {
   font-family: "MarkGEOCaps", sans-serif;
 }
 
-.nav__list li a {
+.nav__list li a,
+.footer__link {
   font-size: 14px !important;
 }

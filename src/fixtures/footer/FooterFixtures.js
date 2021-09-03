@@ -2,15 +2,15 @@ export const FooterSection = [
   {
     products: [
       {
-        name: "ჰედსეტი",
-        route: "#",
-      },
-      {
         name: "ყურსასმენები",
         route: "#",
       },
       {
         name: "უსადენო ყურსასმენები",
+        route: "#",
+      },
+      {
+        name: "ჰედსეტები",
         route: "#",
       },
       {
@@ -30,7 +30,7 @@ export const FooterSection = [
         route: "#",
       },
       {
-        name: "სიახლეები",
+        name: "განახლებები",
         route: "#",
       },
       {
