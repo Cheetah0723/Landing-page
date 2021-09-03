@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function Case() {
   return (
@@ -14,7 +14,8 @@ export default function Case() {
           <div className="case__data">
             <p className="case__description">
               მარტივად მოსახმარი და კონფორტული ქეისი, რომლითაც მის შენახვას
-              ყველგან მოახერხებ.
+              ყველგან მოახერხებ. უმაღლესი ხარისხის მატერიალი და სადა დიზაინი
+              გახდება თქვენი ყოველდღიურობის ნაწილი.
             </p>
             <a href="#" className="button button--flex">
               <i className="ri-information-line button__icon"></i> ვრცლად
@@ -23,5 +24,5 @@ export default function Case() {
         </div>
       </section>
     </>
-  );
+  )
 }
