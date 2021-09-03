@@ -9,7 +9,7 @@ router.route("/subscriber").post(async (req, res) => {
 
   try {
     const savedSubscriber = await Subscriber.save();
-    res.json(savedSubscriber);
+    res.json({ success: true });
   } catch (err) {
     res.json({ message: err });
   }

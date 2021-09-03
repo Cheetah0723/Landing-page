@@ -10,7 +10,7 @@ router.route('/products').post(async (req, res) => {
 
     try {
         const savedProduct = await Product.save();
-        res.json(savedProduct);
+        res.json({ success: true });
     } catch (err) {
         res.json({ message: err });
     }
