@@ -1,7 +1,7 @@
-import React from "react";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import Sponsors from "../../components/sponsors/Sponsors";
+import React from 'react'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
+import Sponsors from '../../components/sponsors/Sponsors'
 
 export default function IndexPages() {
   return (
@@ -23,11 +23,14 @@ export default function IndexPages() {
               <div className="home__footer">
                 <h3 className="home__title-description">მიმოხილვა</h3>
                 <p className="home__description">
-                  მიიღე სიამოვნება მუსიკის მოსმენით უსადენო ყურსასმენების საშალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს ყურსა და მაღალი ხარისხის ხმა.
+                  მიიღე სიამოვნება მუსიკის მოსმენით უსადენო ყურსასმენების
+                  საშალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს
+                  ყურსა და მაღალი ხარისხის ხმა.
                 </p>
                 <a href="#" className="button button--flex">
                   <span className="button--flex">
-                    <i className="ri-shopping-bag-line button__icon"></i> კალათაში დამატება
+                    <i className="ri-shopping-bag-line button__icon"></i>{' '}
+                    კალათაში დამატება
                   </span>
                   <span className="home__price">$299</span>
                 </a>
@@ -39,7 +42,9 @@ export default function IndexPages() {
         <Sponsors />
 
         <section className="specs section grid" id="specs">
-          <h2 className="section__title section__title-gradient">მახასიათებლები</h2>
+          <h2 className="section__title section__title-gradient">
+            მახასიათებლები
+          </h2>
 
           <div className="specs__container container grid">
             <div className="specs__content grid">
@@ -86,7 +91,8 @@ export default function IndexPages() {
 
             <div className="case__data">
               <p className="case__description">
-               მარტივად მოსახმარი და კონფორტული ქეისი, რომლითაც მის შენახვას ყველგან მოახერხებ.
+                მარტივად მოსახმარი და კონფორტული ქეისი, რომლითაც მის შენახვას
+                ყველგან მოახერხებ.
               </p>
               <a href="#" className="button button--flex">
                 <i className="ri-information-line button__icon"></i> მეტი
@@ -213,5 +219,5 @@ export default function IndexPages() {
         <i className="ri-arrow-up-s-line scrollup__icon"></i>
       </a>
     </>
-  );
+  )
 }
