@@ -6,8 +6,13 @@ router.route("/subscriber").post(async (req, res) => {
     email: req.body.email,
     date: req.body.date,
   });
-  Subscriber.save();
-  res.json({ success: true });
+
+  try {
+    const savedSubscriber = await Subscriber.save();
+    res.json({ success: true });
+  } catch (err) {
+    res.json({ message: err });
+  }
 });
 
 module.exports = router;
