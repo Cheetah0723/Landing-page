@@ -447,3 +447,7 @@
 .specs.section.grid {
   font-family: "MarkGEO", sans-serif;
 }
+
+.section__title-gradient {
+  font-family: "MarkGEOCaps", sans-serif;
+}
