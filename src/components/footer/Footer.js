@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   FooterSection,
   FooterSocialNetwork,
@@ -23,7 +23,7 @@ export default function Footer() {
   const [inputErrorMessage, setInputErrorMessage] = React.useState("");
   const [spinner, setSpinner] = React.useState(false);
   const [date, setDate] = React.useState("");
-  const inputRef = React.useRef();
+  const inputRef = useRef();
   React.useEffect(() => {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
