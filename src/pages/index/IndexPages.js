@@ -1,9 +1,10 @@
-import React from 'react'
-import Header from '../../components/header/Header'
-import Footer from '../../components/footer/Footer'
-import Sponsors from '../../components/sponsors/Sponsors'
-import Home from '../../components/home/Home'
-import Specs from '../../components/specs/Specs'
+import React from "react";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import Sponsors from "../../components/sponsors/Sponsors";
+import Home from "../../components/home/Home";
+import Specs from "../../components/specs/Specs";
+import Case from "../../components/case/Case";
 
 export default function IndexPages() {
   return (
@@ -14,26 +15,7 @@ export default function IndexPages() {
 
         <Sponsors />
         <Specs />
-
-        <section className="case section grid" id="case">
-          <h2 className="section__title section__title-gradient">ქეისი</h2>
-
-          <div className="case__container container grid">
-            <div>
-              <img src="assets/img/case.png" alt="" className="case__img" />
-            </div>
-
-            <div className="case__data">
-              <p className="case__description">
-                მარტივად მოსახმარი და კონფორტული ქეისი, რომლითაც მის შენახვას
-                ყველგან მოახერხებ.
-              </p>
-              <a href="#" className="button button--flex">
-                <i className="ri-information-line button__icon"></i> მეტი
-              </a>
-            </div>
-          </div>
-        </section>
+        <Case />
 
         <section className="discount section">
           <div className="discount__container container grid">
@@ -153,5 +135,5 @@ export default function IndexPages() {
         <i className="ri-arrow-up-s-line scrollup__icon"></i>
       </a>
     </>
-  )
+  );
 }
