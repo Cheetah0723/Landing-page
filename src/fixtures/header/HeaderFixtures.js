@@ -1,18 +1,18 @@
 export const HeaderFixtures = [
   {
-    text: "Home",
+    text: "მთავარი",
     route: "#home",
   },
   {
-    text: "Specs",
+    text: "მახასიათებლები",
     route: "#specs",
   },
   {
-    text: "Case",
+    text: "ქეისი",
     route: "#case",
   },
   {
-    text: "Products",
+    text: "პროდუქტები",
     route: "#products",
   },
 ];

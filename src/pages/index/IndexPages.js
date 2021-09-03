@@ -21,16 +21,13 @@ export default function IndexPages() {
               </div>
 
               <div className="home__footer">
-                <h3 className="home__title-description">Overview</h3>
+                <h3 className="home__title-description">მიმოხილვა</h3>
                 <p className="home__description">
-                  Enjoy award-winning Beats sound with wireless listening
-                  freedom and a sleek, streamlined design with comfortable
-                  padded earphones, delivering first-rate playback.
+                  მიიღე სიამოვნება მუსიკის მოსმენით უსადენო ყურსასმენების საშალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს ყურსა და მაღალი ხარისხის ხმა.
                 </p>
                 <a href="#" className="button button--flex">
                   <span className="button--flex">
-                    <i className="ri-shopping-bag-line button__icon"></i> Add to
-                    Bag
+                    <i className="ri-shopping-bag-line button__icon"></i> კალათაში დამატება
                   </span>
                   <span className="home__price">$299</span>
                 </a>
@@ -42,33 +39,33 @@ export default function IndexPages() {
         <Sponsors />
 
         <section className="specs section grid" id="specs">
-          <h2 className="section__title section__title-gradient">Specs</h2>
+          <h2 className="section__title section__title-gradient">მახასიათებლები</h2>
 
           <div className="specs__container container grid">
             <div className="specs__content grid">
               <div className="specs__data">
                 <i className="ri-bluetooth-line specs__icon"></i>
-                <h3 className="specs__title">Connection</h3>
+                <h3 className="specs__title">კავშირი</h3>
                 <span className="specs__subtitle">Bluetooth v5.2</span>
               </div>
 
               <div className="specs__data">
                 <i className="ri-battery-charge-line specs__icon"></i>
-                <h3 className="specs__title">Battery</h3>
-                <span className="specs__subtitle">Duration 40h</span>
+                <h3 className="specs__title">ელემენტი</h3>
+                <span className="specs__subtitle">იმუშავებს 40სთ</span>
               </div>
 
               <div className="specs__data">
                 <i className="ri-plug-line specs__icon"></i>
-                <h3 className="specs__title">Load</h3>
-                <span className="specs__subtitle">Fast charge 4.2-AAC</span>
+                <h3 className="specs__title">დატენვა</h3>
+                <span className="specs__subtitle">სწრაფი დატენვა 4.2-AAC</span>
               </div>
 
               <div className="specs__data">
                 <i className="ri-mic-line specs__icon"></i>
-                <h3 className="specs__title">Microphone</h3>
+                <h3 className="specs__title">მიკროფონი</h3>
                 <span className="specs__subtitle">
-                  Supports Apple Siri <br /> and Google
+                  აქვს მხარდაჭერა Apple Siri-ის <br /> და Google-ის
                 </span>
               </div>
             </div>
@@ -80,7 +77,7 @@ export default function IndexPages() {
         </section>
 
         <section className="case section grid" id="case">
-          <h2 className="section__title section__title-gradient">Case</h2>
+          <h2 className="section__title section__title-gradient">ქეისი</h2>
 
           <div className="case__container container grid">
             <div>
@@ -89,11 +86,10 @@ export default function IndexPages() {
 
             <div className="case__data">
               <p className="case__description">
-                With a comfortable and adaptable case so that you can store it
-                whenever you want, and keep your durability forever.
+               მარტივად მოსახმარი და კონფორტული ქეისი, რომლითაც მის შენახვას ყველგან მოახერხებ.
               </p>
               <a href="#" className="button button--flex">
-                <i className="ri-information-line button__icon"></i> More info
+                <i className="ri-information-line button__icon"></i> მეტი
               </a>
             </div>
           </div>
@@ -103,13 +99,13 @@ export default function IndexPages() {
           <div className="discount__container container grid">
             <div className="discount__animate">
               <h2 className="discount__title">
-                Immerse yourself in <br /> your music
+                ჩაეშვი <br /> მუსიკის სამყაროში
               </h2>
               <p className="discount__description">
-                Get it now, up to 50% off.
+                იყიდე ახლა 50%-იანი ფასდაკლებით.
               </p>
               <a href="#" className="button button--flex">
-                <i className="ri-shopping-bag-line button__icon"></i> Shop Now
+                <i className="ri-shopping-bag-line button__icon"></i> ყიდვა
               </a>
             </div>
 
@@ -123,7 +119,7 @@ export default function IndexPages() {
 
         <section className="products section" id="products">
           <h2 className="section__title section__title-gradient products__line">
-            Choose <br /> Your Style
+            აირჩიე <br /> შენი სტილი
           </h2>
 
           <div className="products__container container grid">
@@ -135,7 +131,7 @@ export default function IndexPages() {
                   className="products__img"
                 />
 
-                <h3 className="products__title">Black</h3>
+                <h3 className="products__title">შავი</h3>
                 <span className="products__price">$249</span>
 
                 <button className="button button--flex products__button">
@@ -151,7 +147,7 @@ export default function IndexPages() {
                   className="products__img"
                 />
 
-                <h3 className="products__title">Red Black</h3>
+                <h3 className="products__title">წითელი შავი</h3>
                 <span className="products__price">$249</span>
 
                 <button className="button button--flex products__button">
@@ -167,7 +163,7 @@ export default function IndexPages() {
                   className="products__img"
                 />
 
-                <h3 className="products__title">Night Black</h3>
+                <h3 className="products__title">მუქი ლურჯი</h3>
                 <span className="products__price">$249</span>
 
                 <button className="button button--flex products__button">
@@ -183,7 +179,7 @@ export default function IndexPages() {
                   className="products__img"
                 />
 
-                <h3 className="products__title">Blue</h3>
+                <h3 className="products__title">ლურჯი</h3>
                 <span className="products__price">$249</span>
 
                 <button className="button button--flex products__button">
@@ -200,7 +196,7 @@ export default function IndexPages() {
                   className="products__img"
                 />
 
-                <h3 className="products__title">Twilight gray</h3>
+                <h3 className="products__title">ბინდის ვერცხლისფერი</h3>
                 <span className="products__price">$249</span>
 
                 <button className="button button--flex products__button">
