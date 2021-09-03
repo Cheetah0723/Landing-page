@@ -447,7 +447,9 @@
 .case__description,
 .discount.section,
 .products__title,
-.footer__link {
+.footer__link,
+.footer__input::placeholder,
+.footer__input {
   font-family: "MarkGEO", sans-serif;
 }
 

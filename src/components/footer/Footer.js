@@ -147,7 +147,7 @@ export default function Footer() {
             >
               <input
                 type="text"
-                placeholder="Email"
+                placeholder="ელ.ფოსტა"
                 class="footer__input"
                 ref={inputRef}
                 value={input}
@@ -157,7 +157,7 @@ export default function Footer() {
                 class="button button--flex"
                 onClick={() => identification()}
               >
-                <i class="ri-send-plane-line button__icon"></i> Subscribe
+                <i class="ri-send-plane-line button__icon"></i> გამოწერა
               </button>
             </form>
 
