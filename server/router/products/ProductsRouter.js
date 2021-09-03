@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const Products = require("../../schema/products/ProductSchema");
 
+
+router.route('/products').get(async (req, res) => {
+    try {
+        const products = await Products.find();
+        res.json({ products });
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
+
+
 router.route('/products').post(async (req, res) => {
     const Product = new Products({
         title: req.body.title,
