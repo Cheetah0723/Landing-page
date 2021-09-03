@@ -1,17 +1,21 @@
 const mongoose = require("mongoose");
 
-const NotificationsSchema = mongoose.Schema({
+const NotificationsSchema = mongoose.Schema(
+  {
     title: {
-        type: String
+      type: String,
     },
     description: {
-        type: String
+      type: String,
     },
     image: {
-        type: String
+      type: String,
     },
-    versionKey: false
-});
+  },
+  {
+    versionKey: false,
+  }
+);
 
 const Notifications = mongoose.model("Notifications", NotificationsSchema);
 module.exports = Notifications;
