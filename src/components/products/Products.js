@@ -82,7 +82,7 @@ export default function Products() {
                 className="products__img"
               />
 
-              <h3 className="products__title">ვერცხლისფერი</h3>
+              <h3 className="products__title">ვერცხლი</h3>
               <span className="products__price">$249</span>
 
               <button className="button button--flex products__button">
