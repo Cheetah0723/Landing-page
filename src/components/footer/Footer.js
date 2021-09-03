@@ -23,6 +23,7 @@ export default function Footer() {
   const [inputErrorMessage, setInputErrorMessage] = React.useState("");
   const [spinner, setSpinner] = React.useState(false);
   const [date, setDate] = React.useState("");
+  const inputRef = React.useRef();
   React.useEffect(() => {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
@@ -36,6 +37,7 @@ export default function Footer() {
     if (!input) {
       setInputError(true);
       setInputErrorMessage("გთხოვთ შეიყვანოთ ელ.ფოსტა");
+      inputRef.current.focus();
     } else if (
       !/([a-zA-Z0-9]+)([\_\.\-{1}])?([a-zA-Z0-9]+)\@([a-zA-Z0-9]+)([\.])([a-zA-Z\.]+)/g.test(
         input
@@ -43,6 +45,7 @@ export default function Footer() {
     ) {
       setInputError(true);
       setInputErrorMessage("არასწორი ელ.ფოსტა");
+      inputRef.current.focus();
     } else {
       setInputErrorMessage("");
       setInputError(false);
@@ -55,8 +58,9 @@ export default function Footer() {
         })
         .then((res) => {
           if (res.data.success) {
-            Swal.fire("Good Job!", "Your email saved", "success");
+            Swal.fire("გილოცავ", "მოქმედება წარმატებით შესრულდა", "success");
           }
+          setInput("");
           document.body.style.overflowY = "scroll";
           setSpinner(false);
         });
@@ -155,6 +159,7 @@ export default function Footer() {
                 type="text"
                 placeholder="Email"
                 class="footer__input"
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
               />
