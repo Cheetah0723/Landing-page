@@ -13,10 +13,6 @@ export default function Sponsors() {
               <img key={i} src={item.image} alt="" className="sponsor__img" />
             );
           })}
-          {/* <img src="assets/img/sponsor1.png" alt="" className="sponsor__img" />
-          <img src="assets/img/sponsor2.png" alt="" className="sponsor__img" />
-          <img src="assets/img/sponsor3.png" alt="" className="sponsor__img" />
-          <img src="assets/img/sponsor4.png" alt="" className="sponsor__img" /> */}
         </div>
       </section>
     </>
