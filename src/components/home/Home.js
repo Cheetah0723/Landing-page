@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function Home() {
   return (
@@ -19,8 +19,9 @@ export default function Home() {
               <h3 className="home__title-description">მიმოხილვა</h3>
               <p className="home__description">
                 მიიღე სიამოვნება მუსიკის მოსმენით უსადენო ყურსასმენების
-                საშალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს ყურსა
-                და მაღალი ხარისხის ხმა.
+                საშუალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს ყურს
+                და მაღალი ხარისხის ხმა, არის თქვენი საყვარელი ჰიტების მოსმენის
+                ყველაზე კომფორტული საშუალება.
               </p>
               <a href="#" className="button button--flex">
                 <span className="button--flex">
@@ -34,5 +35,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  );
+  )
 }
