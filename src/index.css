@@ -443,6 +443,7 @@
 .home__description,
 .home__title-description,
 .button--flex,
-.nav__list li {
+.nav__list li,
+.specs.section.grid {
   font-family: "MarkGEO", sans-serif;
 }
