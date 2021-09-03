@@ -4,20 +4,11 @@ import {
   FooterSocialNetwork,
 } from "../../fixtures/footer/FooterFixtures";
 import Alert from "@material-ui/lab/Alert";
-// import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import env from "../../application/environment/env.json";
 import Swal from "sweetalert2";
 
 export default function Footer() {
-  // const useStyles = makeStyles((theme) => ({
-  //   root: {
-  //     width: '100%',
-  //     '& > * + *': {
-  //       marginTop: theme.spacing(2),
-  //     },
-  //   },
-  // }));
   const [input, setInput] = React.useState("");
   const [inputError, setInputError] = React.useState(false);
   const [inputErrorMessage, setInputErrorMessage] = React.useState("");
@@ -66,7 +57,6 @@ export default function Footer() {
         });
     }
   };
-  // const classes = useStyles();
   return (
     <>
       {inputError && (
