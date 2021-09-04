@@ -463,3 +463,18 @@
 .footer__link {
   font-size: 14px !important;
 }
+
+.nav__btn {
+  border: none;
+  outline: none;
+  background-color: var(--container-color);
+  color: #fff;
+  font-family: "MarkGEOCaps", sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav__btn:hover {
+  background-color: hsl(var(--hue-color), 4%, 15%);
+}

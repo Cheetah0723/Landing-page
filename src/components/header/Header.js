@@ -36,6 +36,7 @@ export default function Header() {
                   </>
                 );
               })}
+              <button className="nav__btn">შესვლა</button>
             </ul>
 
             <div class="nav__close" id="nav-close">
