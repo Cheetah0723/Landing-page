@@ -7,6 +7,8 @@ function SignUpPages() {
   const [firstNameError, setFirstNameError] = useState(false);
   const firstNameRef = useRef();
   const [lastName, setLastName] = useState("");
+  const [lastNameError, setLastNameError] = useStttate(false);
+  const lastNameRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -14,8 +16,12 @@ function SignUpPages() {
   const identificationFirstPage = () => {
     if (!firstName) {
       setFirstNameError(true);
+      setLastNameError(false);
       firstNameRef.current.focus();
     } else if (!lastName) {
+      setLastNameError(true);
+      setFirstNameError(false);
+      lastNameRef.current.focus();
     }
   };
   const { pathname } = useLocation();
@@ -35,7 +41,7 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-2elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="text"
                       autoCapitalize="off"
@@ -69,67 +75,68 @@ function SignUpPages() {
                       </div>
                     )}
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
+                      ref={lastNameRef}
                       placeholder=" "
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       გვარი
                     </label>
                   </div>
                 </div>
                 <div className="signup__block-1elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       ელ-ფოსტა
                     </label>
                   </div>
                 </div>
                 <div className="signup__block-2elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       პაროლი
                     </label>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
                       value={repeatPassword}
                       onChange={(e) => setRepeatPassword(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       გაიმეორეთ პაროლი
                     </label>
                   </div>
@@ -152,7 +159,7 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-3elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <select name="day" size="1">
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -186,7 +193,7 @@ function SignUpPages() {
                       <option value="31">31</option>
                     </select>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <select name="month" size="1">
                       <option value="jan">იანვარი</option>
                       <option value="feb">თებერვალი</option>
@@ -202,7 +209,7 @@ function SignUpPages() {
                       <option value="dec">დეკემბერი</option>
                     </select>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <select name="year" size="1">
                       <option value="2010">2010</option>
                       <option value="2009">2009</option>
@@ -213,20 +220,20 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-2elements">
-                  <div class="form__div ">
+                  <div className="form__div ">
                     <input
                       type="file"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       ავატარი
                     </label>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <div className="signup__boxforgender">
                       <div>
                         <input
