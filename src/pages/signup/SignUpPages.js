@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function SignUpPages() {
   return (
@@ -85,7 +85,7 @@ function SignUpPages() {
         </div>
       </form>
     </>
-  )
+  );
 }
 
-export default SignUpPages
+export default SignUpPages;
