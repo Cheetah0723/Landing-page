@@ -1,25 +1,27 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function SigninContainer({ showSignin, handle }) {
-  const [username, SetUsername] = useState("");
-  const [usernameError,setUsernameError] = useState(false);
-  const [password, Setpassword] = useState("");
-  const [passwordError,setpasswordError] = useState(false);
+  const [username, SetUsername] = useState('')
+  const [usernameError, setUsernameError] = useState(false)
+  const [password, Setpassword] = useState('')
+  const [passwordError, setpasswordError] = useState(false)
+  const usernameRef = useRef()
+  const passwordRef = useRef()
   const identification = () => {
-  if (!username){
-    setUsernameError(true);
+    if (!username) {
+      setUsernameError(true)
+      setpasswordError(false)
+      usernameRef.current.focus()
+    } else if (!password) {
+      setUsernameError(false)
+      setpasswordError(true)
+      passwordRef.current.focus()
+    } else {
+      setUsernameError(false)
+      setpasswordError(false)
+    }
   }
-  else{
-    setUsernameError(false);
-  }
-  if (!password){
-    setpasswordError(true);
-  }
-  else{
-    setpasswordError(false);
-  }
-}
 
   return (
     <>
@@ -67,42 +69,86 @@ export default function SigninContainer({ showSignin, handle }) {
               >
                 <div className="signin__head-form-content">
                   <div class="form__div">
-                  {usernameError && (
-                    <p> შეიყვანეთ მომხმარებლის სახელი</p>
-                  )}
-                    <input type="text" value={username} onChange={e=>SetUsername(e.target.value)}
+                    <input
+                      type="text"
+                      value={username}
+                      onChange={(e) => SetUsername(e.target.value)}
+                      ref={usernameRef}
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className={
+                        usernameError
+                          ? 'form__input error__input__container'
+                          : 'form__input'
+                      }
                       placeholder=" "
                     />
-                    <label for="" class="form__label">
+                    <label
+                      for=""
+                      class="form__label"
+                      className={
+                        usernameError
+                          ? 'form__label error__label__container'
+                          : 'form__label'
+                      }
+                    >
                       მომხმარებლის სახელი
                     </label>
+                    {usernameError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div class="form__div">
-                  {passwordError && (
-                    <p> შეიყვანეთ პაროლი</p>
-                  )}
-                    <input type="text" value={password} onChange={a=>Setpassword(a.target.value)}
+                    <input
+                      type="text"
+                      value={password}
+                      onChange={(a) => Setpassword(a.target.value)}
+                      ref={passwordRef}
                       type="password"
-                      class="form__input"
+                      className={
+                        passwordError
+                          ? 'form__input error__input__container'
+                          : 'form__input'
+                      }
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
                       placeholder=" "
                     />
-                    <label for="" class="form__label">
+                    <label
+                      for=""
+                      className={
+                        passwordError
+                          ? 'form__label error__label__container'
+                          : 'form__label'
+                      }
+                    >
                       პაროლი
                     </label>
+                    {passwordError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <Link className="form__resetDATA">
                     დაგავიწყდა მონაცემები?
                   </Link>
                   <div className="form__buttonContainer">
-                    <button onClick={() => identification()} className="form__signinButton">შესვლა</button>
+                    <button
+                      onClick={() => identification()}
+                      className="form__signinButton"
+                    >
+                      შესვლა
+                    </button>
                     <Link to="/signup">
                       <button className="form__RegButton">რეგისტრაცია</button>
                     </Link>
@@ -114,5 +160,5 @@ export default function SigninContainer({ showSignin, handle }) {
         </div>
       </div>
     </>
-  );
+  )
 }
