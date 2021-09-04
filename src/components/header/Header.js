@@ -23,6 +23,7 @@ export default function Header() {
         showSignin={showSignin && "true"}
         handle={() => {
           setShowSignin(!showSignin);
+          document.body.style.overflowY = "visible";
         }}
       />
       <header class="header" id="header">
@@ -48,6 +49,7 @@ export default function Header() {
                 className="nav__btn"
                 onClick={() => {
                   setShowSignin(!showSignin);
+                  document.body.style.overflowY = "hidden";
                 }}
               >
                 შესვლა

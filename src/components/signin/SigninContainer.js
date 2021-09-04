@@ -8,6 +8,7 @@ export default function SigninContainer({ showSignin, handle }) {
         is-active={showSignin}
         onClick={handle}
       ></div>
+      <div className="signin__Container" is-active={showSignin}></div>
     </>
   );
 }
