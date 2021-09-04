@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 function SignUpPages() {
   const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
@@ -21,14 +21,15 @@ function SignUpPages() {
   const length = 2;
   const identificationFirstPage = () => {
     if (!firstName) {
-      setFirstNameError(true);
-      setLastNameError(false);
-      firstNameRef.current.focus();
+      setFirstNameError(true)
+      setLastNameError(false)
+      firstNameRef.current.focus()
     } else if (!lastName) {
-      setLastNameError(true);
-      setFirstNameError(false);
-      lastNameRef.current.focus();
+      setLastNameError(true)
+      setFirstNameError(false)
+      lastNameRef.current.focus()
     }
+    
     else if(!email){
       setEmailError(true);
       setEmailError(false);
@@ -54,11 +55,19 @@ function SignUpPages() {
       setRepeatPasswordError(false);
       repeatPasswordRef.current.focus();
     }
+
+    else {
+      setLastNameError(false)
+      setFirstNameError(false)
+    }
+   
   };
-  const { pathname } = useLocation();
+  
+  const { pathname } = useLocation()
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    window.scrollTo(0, 0)
+  }, [pathname])
   return (
     <>
       <div className="signup__centerbox">
@@ -81,8 +90,8 @@ function SignUpPages() {
                       ref={firstNameRef}
                       className={
                         firstNameError
-                          ? "form__input error__input__container"
-                          : "form__input"
+                          ? 'form__input error__input__container'
+                          : 'form__input'
                       }
                       placeholder=" "
                       value={firstName}
@@ -92,8 +101,8 @@ function SignUpPages() {
                       for=""
                       className={
                         firstNameError
-                          ? "form__label error__label__container"
-                          : "form__label"
+                          ? 'form__label error__label__container'
+                          : 'form__label'
                       }
                     >
                       სახელი
@@ -114,8 +123,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       className={
                         lastNameError
-                          ? "form__input error__input__container"
-                          : "form__input"
+                          ? 'form__input error__input__container'
+                          : 'form__input'
                       }
                       ref={lastNameRef}
                       placeholder=" "
@@ -126,8 +135,8 @@ function SignUpPages() {
                       for=""
                       className={
                         lastNameError
-                          ? "form__label error__label__container"
-                          : "form__label"
+                          ? 'form__label error__label__container'
+                          : 'form__label'
                       }
                     >
                       გვარი
@@ -318,7 +327,7 @@ function SignUpPages() {
                           name="fav_language"
                           value="HTML"
                         />
-                          <label for="html">მამრობითი</label> {" "}
+                          <label for="html">მამრობითი</label> {' '}
                       </div>
                       <div>
                         <input
@@ -336,7 +345,7 @@ function SignUpPages() {
                   <button className="form__signinButton signup__button1">
                     რეგისტრაციის დასრულება
                   </button>
-                </div>{" "}
+                </div>{' '}
                 <div className="form__buttonContainer signup__button-box">
                   <button
                     className="form__RegButton signup__button2"
@@ -344,14 +353,14 @@ function SignUpPages() {
                   >
                     უკან დაბრუნება
                   </button>
-                </div>{" "}
+                </div>{' '}
               </>
             )}
           </form>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default SignUpPages;
+export default SignUpPages
