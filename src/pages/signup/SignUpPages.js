@@ -8,7 +8,7 @@ function SignUpPages() {
           <div className="signin__head-header signup__head">
             <div className="signin__head-header-wrapper">პირადი ინფორმაცია</div>
           </div>
-          <form action="">
+          <form onSubmit={(e) => e.preventDefault()}>
             <div className="signup__block-2elements">
               <div class="form__div">
                 <input
