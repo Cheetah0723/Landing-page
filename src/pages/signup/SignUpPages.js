@@ -7,7 +7,7 @@ function SignUpPages() {
   const [firstNameError, setFirstNameError] = useState(false);
   const firstNameRef = useRef();
   const [lastName, setLastName] = useState("");
-  const [lastNameError, setLastNameError] = useStttate(false);
+  const [lastNameError, setLastNameError] = useState(false);
   const lastNameRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
