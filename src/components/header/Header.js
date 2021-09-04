@@ -19,7 +19,12 @@ export default function Header() {
   });
   return (
     <>
-      <SigninContainer showSignin={showSignin && "true"} />
+      <SigninContainer
+        showSignin={showSignin && "true"}
+        handle={() => {
+          setShowSignin(!showSignin);
+        }}
+      />
       <header class="header" id="header">
         <nav class="nav container">
           <a href="#" class="nav__logo">
