@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 function SignUpPages() {
   const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
   const [firstName, setFirstName] = useState("");
+  const [firstNameError, setFirstNameError] = useState(false);
+  const firstNameRef = useRef();
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const length = 2;
-  const identificationFirstPage = () => {};
+  const identificationFirstPage = () => {
+    if (!firstName) {
+      setFirstNameError(true);
+      firstNameRef.current.focus();
+    }
+  };
   return (
     <>
       <div className="signup__centerbox">
@@ -28,6 +35,7 @@ function SignUpPages() {
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
+                      ref={firstNameRef}
                       class="form__input"
                       placeholder=" "
                       value={firstName}
