@@ -649,4 +649,9 @@
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.form__resetDATA:hover {
+  opacity: 0.7;
 }
