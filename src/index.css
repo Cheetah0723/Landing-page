@@ -478,3 +478,22 @@
 .nav__btn:hover {
   background-color: hsl(var(--hue-color), 4%, 15%);
 }
+
+.signin__ContainerBG {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.signin__ContainerBG[is-active="true"] {
+  opacity: 1;
+  pointer-events: visible;
+}

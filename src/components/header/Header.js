@@ -1,7 +1,9 @@
 import React from "react";
 import { HeaderFixtures } from "../../fixtures/header/HeaderFixtures";
+import SigninContainer from "../signin/SigninContainer";
 
 export default function Header() {
+  const [showSignin, setShowSignin] = React.useState(false);
   const renderClassNames = (item) => {
     if (item.route == window.location.hash) {
       return "nav__link active-link";
@@ -17,6 +19,7 @@ export default function Header() {
   });
   return (
     <>
+      <SigninContainer showSignin={showSignin && "true"} />
       <header class="header" id="header">
         <nav class="nav container">
           <a href="#" class="nav__logo">
@@ -36,7 +39,14 @@ export default function Header() {
                   </>
                 );
               })}
-              <button className="nav__btn">შესვლა</button>
+              <button
+                className="nav__btn"
+                onClick={() => {
+                  setShowSignin(!showSignin);
+                }}
+              >
+                შესვლა
+              </button>
             </ul>
 
             <div class="nav__close" id="nav-close">
