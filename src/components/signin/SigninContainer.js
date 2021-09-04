@@ -48,7 +48,14 @@ export default function SigninContainer({ showSignin, handle }) {
               >
                 <div className="signin__head-form-content">
                   <div class="form__div">
-                    <input type="text" class="form__input" placeholder=" " />
+                    <input
+                      type="text"
+                      autoCapitalize="off"
+                      autoComplete="off"
+                      autoCorrect="off"
+                      class="form__input"
+                      placeholder=" "
+                    />
                     <label for="" class="form__label">
                       მომხმარებლის სახელი
                     </label>
@@ -57,6 +64,9 @@ export default function SigninContainer({ showSignin, handle }) {
                     <input
                       type="password"
                       class="form__input"
+                      autoCapitalize="off"
+                      autoComplete="off"
+                      autoCorrect="off"
                       placeholder=" "
                     />
                     <label for="" class="form__label">
