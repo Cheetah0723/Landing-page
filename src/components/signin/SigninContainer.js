@@ -1,7 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 export default function SigninContainer({ showSignin, handle }) {
+  const [username, SetUsername] = useState("");
+  const [usernameError,setUsernameError] = useState(false);
+  const [password, Setpassword] = useState("");
+  const [passwordError,setpasswordError] = useState(false);
+  const identification = () => {
+  if (!username){
+    setUsernameError(true);
+  }
+  else{
+    setUsernameError(false);
+  }
+  if (!password){
+    setpasswordError(true);
+  }
+  else{
+    setpasswordError(false);
+  }
+}
+
   return (
     <>
       <div
@@ -48,7 +67,10 @@ export default function SigninContainer({ showSignin, handle }) {
               >
                 <div className="signin__head-form-content">
                   <div class="form__div">
-                    <input
+                  {usernameError && (
+                    <p> შეიყვანეთ მომხმარებლის სახელი</p>
+                  )}
+                    <input type="text" value={username} onChange={e=>SetUsername(e.target.value)}
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
@@ -61,7 +83,10 @@ export default function SigninContainer({ showSignin, handle }) {
                     </label>
                   </div>
                   <div class="form__div">
-                    <input
+                  {passwordError && (
+                    <p> შეიყვანეთ პაროლი</p>
+                  )}
+                    <input type="text" value={password} onChange={a=>Setpassword(a.target.value)}
                       type="password"
                       class="form__input"
                       autoCapitalize="off"
@@ -77,7 +102,7 @@ export default function SigninContainer({ showSignin, handle }) {
                     დაგავიწყდა მონაცემები?
                   </Link>
                   <div className="form__buttonContainer">
-                    <button className="form__signinButton">შესვლა</button>
+                    <button onClick={() => identification()} className="form__signinButton">შესვლა</button>
                     <Link to="/signup">
                       <button className="form__RegButton">რეგისტრაცია</button>
                     </Link>
