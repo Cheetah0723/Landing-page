@@ -30,8 +30,14 @@ app.use("/api", Products);
 const Notifications = require("./router/notifications/NotificationsRouter");
 app.use("/api", Notifications);
 
+const Signup = require("./router/Signup/SignupRouter");
+app.use("/api", Signup);
+
+const Login = require("./router/login/LoginRouter");
+app.use("/api", Login);
+
 const PORT = process.env.PORT || 3002;
 
 app.listen(PORT, () => {
-  console.log(`server listen ${PORT}`);
+  console.log(`server listen at ${PORT}`);
 });
