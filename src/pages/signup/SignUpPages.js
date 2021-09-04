@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function SignUpPages() {
   return (
@@ -6,9 +6,7 @@ function SignUpPages() {
       <div className="signup__centerbox">
         <div className="signup__mainbox">
           <div className="signin__head-header signup__head">
-            <div className="signin__head-header-wrapper">
-              საიტზე რეგისტრაცია
-            </div>
+            <div className="signin__head-header-wrapper">პირადი ინფორმაცია</div>
           </div>
           <form action="">
             <div className="signup__block-2elements">
@@ -91,7 +89,7 @@ function SignUpPages() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default SignUpPages
+export default SignUpPages;
