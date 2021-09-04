@@ -15,6 +15,7 @@ function SignUpPages() {
     if (!firstName) {
       setFirstNameError(true);
       firstNameRef.current.focus();
+    } else if (!lastName) {
     }
   };
   const { pathname } = useLocation();
@@ -41,14 +42,32 @@ function SignUpPages() {
                       autoComplete="off"
                       autoCorrect="off"
                       ref={firstNameRef}
-                      class="form__input"
+                      className={
+                        firstNameError
+                          ? "form__input error__input__container"
+                          : "form__input"
+                      }
                       placeholder=" "
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label
+                      for=""
+                      className={
+                        firstNameError
+                          ? "form__label error__label__container"
+                          : "form__label"
+                      }
+                    >
                       სახელი
                     </label>
+                    {firstNameError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div class="form__div">
                     <input
