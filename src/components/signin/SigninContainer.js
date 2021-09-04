@@ -76,6 +76,10 @@ export default function SigninContainer({ showSignin, handle }) {
                   <Link className="form__resetDATA">
                     დაგავიწყდა მონაცემები?
                   </Link>
+                  <div className="form__buttonContainer">
+                    <button>შესვლა</button>
+                    <button>რეგისტრაცია</button>
+                  </div>
                 </div>
               </form>
             </div>

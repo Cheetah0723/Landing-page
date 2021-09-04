@@ -655,3 +655,48 @@
 .form__resetDATA:hover {
   opacity: 0.7;
 }
+
+.form__buttonContainer {
+  margin-top: 80px;
+}
+
+.form__buttonContainer button:nth-child(1) {
+  background-color: #1877f2;
+  width: 100%;
+  padding: 0 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #fff;
+  transition: 200ms cubic-bezier(0.08, 0.52, 0.52, 1) background-color,
+    200ms cubic-bezier(0.08, 0.52, 0.52, 1) box-shadow,
+    200ms cubic-bezier(0.08, 0.52, 0.52, 1) transform;
+  font-family: "MarkGEOCaps";
+  height: 56px;
+}
+
+.form__buttonContainer button:nth-child(1):hover {
+  box-shadow: var(--shadow-overlay);
+  background-color: #166fe5;
+}
+
+.form__buttonContainer button:nth-child(2) {
+  border: none;
+  background-color: transparent;
+  color: #1877f2;
+  font-family: "MarkGEOCaps";
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+  border-radius: 2px;
+  padding: 8px;
+  font-size: 12px;
+  transition: background 0.3s;
+}
+
+.form__buttonContainer button:nth-child(2):hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
