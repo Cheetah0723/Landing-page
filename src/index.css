@@ -512,3 +512,17 @@
 .signin__Container[is-active="true"] {
   right: 0;
 }
+
+.signin__closeIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 88px;
+  max-height: 88px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 40px;
+}
+
+.signin__closeIconContainer svg {
+  cursor: pointer;
+}
