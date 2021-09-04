@@ -41,7 +41,19 @@ export default function SigninContainer({ showSignin, handle }) {
           </div>
           <div className="signin__head-content">
             <div className="signin__head-content-wrapper">
-              <form onSubmit={(e) => e.preventDefault()}></form>
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                className="signin__head-form"
+              >
+                <div className="signin__head-form-content">
+                  <div class="form__div">
+                    <input type="text" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">
+                      მომხმარებლის სახელი
+                    </label>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
