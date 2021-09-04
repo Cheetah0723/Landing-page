@@ -551,3 +551,15 @@
   margin: auto;
   padding: 0 64px;
 }
+
+.signin__head-content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.signin__head-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}

@@ -39,6 +39,11 @@ export default function SigninContainer({ showSignin, handle }) {
           <div className="signin__head-header">
             <div className="signin__head-header-wrapper">სისტემაში შესვლა</div>
           </div>
+          <div className="signin__head-content">
+            <div className="signin__head-content-wrapper">
+              <form onSubmit={(e) => e.preventDefault()}></form>
+            </div>
+          </div>
         </div>
       </div>
     </>
