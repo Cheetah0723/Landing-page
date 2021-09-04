@@ -2,67 +2,83 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 function SignUpPages() {
-  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
-  const [firstName, setFirstName] = useState("");
-  const [firstNameError, setFirstNameError] = useState(false);
-  const firstNameRef = useRef();
-  const [lastName, setLastName] = useState("");
-  const [lastNameError, setLastNameError] = useState(false);
-  const lastNameRef = useRef();
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const emailRef = useRef();
-  const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const passwordRef = useRef();
-  const [repeatPassword, setRepeatPassword] = useState("");
-  const [repeatPasswordError, setRepeatPasswordError] = useState("");
-  const repeatPasswordRef = useRef();
-  const length = 2;
+  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1)
+  const [firstName, setFirstName] = useState('')
+  const [firstNameError, setFirstNameError] = useState(false)
+  const firstNameRef = useRef()
+  const [lastName, setLastName] = useState('')
+  const [lastNameError, setLastNameError] = useState(false)
+  const lastNameRef = useRef()
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const emailRef = useRef()
+  const [password, setPassword] = useState('')
+  const [passwordError, setPasswordError] = useState(false)
+  const passwordRef = useRef()
+  const [repeatPassword, setRepeatPassword] = useState('')
+  const [repeatPasswordError, setRepeatPasswordError] = useState(false)
+  const [passwordMatch, setPasswordMatch] = useState(false)
+  const repeatPasswordRef = useRef()
+  const length = 2
   const identificationFirstPage = () => {
     if (!firstName) {
       setFirstNameError(true)
+      setRepeatPasswordError(false)
+      setEmailError(false)
       setLastNameError(false)
+      setPasswordError(false)
+      setPasswordMatch(false)
       firstNameRef.current.focus()
     } else if (!lastName) {
       setLastNameError(true)
+      setRepeatPasswordError(false)
+      setEmailError(false)
       setFirstNameError(false)
+      setPasswordError(false)
+      setPasswordMatch(false)
       lastNameRef.current.focus()
-    }
-    
-    else if(!email){
-      setEmailError(true);
-      setEmailError(false);
-      setEmailError(false);
-      setEmailError(false);
-      setEmailError(false);
-      emailRef.current.focus();
-
-    }
-    else if(!password){
-      setPasswordError(true);
-      setPasswordError(false);
-      setPasswordError(false);
-      setPasswordError(false);
-      setPasswordError(false);
-      passwordRef.current.focus();
-    }
-    else if(!repeatPassword){
-      setRepeatPasswordError(true);
-      setRepeatPasswordError(false);
-      setRepeatPasswordError(false);
-      setRepeatPasswordError(false);
-      setRepeatPasswordError(false);
-      repeatPasswordRef.current.focus();
-    }
-
-    else {
-      setLastNameError(false)
+    } else if (!email) {
+      setEmailError(true)
       setFirstNameError(false)
+      setLastNameError(false)
+      setPasswordError(false)
+      setRepeatPasswordError(false)
+      setPasswordMatch(false)
+      emailRef.current.focus()
+    } else if (!password) {
+      setPasswordError(true)
+      setEmailError(false)
+      setFirstNameError(false)
+      setLastNameError(false)
+      setRepeatPasswordError(false)
+      setPasswordMatch(false)
+      passwordRef.current.focus()
+    } else if (!repeatPassword) {
+      setRepeatPasswordError(true)
+      setEmailError(false)
+      setFirstNameError(false)
+      setLastNameError(false)
+      setPasswordError(false)
+      setPasswordMatch(false)
+      repeatPasswordRef.current.focus()
+    } else if (password != repeatPassword) {
+      setPasswordMatch(true)
+      setRepeatPasswordError(false)
+      setEmailError(false)
+      setFirstNameError(false)
+      setLastNameError(false)
+      setPasswordError(false)
+    } else {
+      setRepeatPasswordError(false)
+      setEmailError(false)
+      setFirstNameError(false)
+      setLastNameError(false)
+      setPasswordError(false)
+      setPasswordMatch(false)
+      setShowSignUpNextPage(2)
     }
-   
-  };
-  
+  }
+
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -152,27 +168,30 @@ function SignUpPages() {
                 </div>
                 <div className="signup__block-1elements">
                   <div className="form__div">
-                    <input type="text" value={email} onChange={e=>setEmail(e.target.value)}
+                    <input
+                      type="text"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
                       className={
                         emailError
-                          ? "form__input error__input__container"
-                          : "form__input"
+                          ? 'form__input error__input__container'
+                          : 'form__input'
                       }
                       ref={emailRef}
                       placeholder=" "
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                     <label
+                    <label
                       for=""
                       className={
                         emailError
-                          ? "form__label error__label__container"
-                          : "form__label"
+                          ? 'form__label error__label__container'
+                          : 'form__label'
                       }
                     >
                       ელ-ფოსტა
@@ -188,42 +207,90 @@ function SignUpPages() {
                 </div>
                 <div className="signup__block-2elements">
                   <div className="form__div">
-                  {passwordError && (
-                    <p> შეიყვანეთ პაროლი</p>
-                  )}
-                  <input type="text" value={password} onChange={e=>setPassword(e.target.value)}
-                      type="password"
-                      autoCapitalize="off"
-                      autoComplete="off"
-                      autoCorrect="off"
-                      className="form__input"
-                      placeholder=" "
-                      ref={passwordRef}
+                    <input
+                      type="text"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <label for="" className="form__label">
-                      პაროლი
-                    </label>
-                  </div>
-                  <div className="form__div">
-                  {repeatPasswordError && (
-                    <p> გაიმეორეთ პაროლი</p>
-                  )}
-                  <input type="text" value={repeatPassword} onChange={e=>setRepeatPassword(e.target.value)}
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      className="form__input"
+                      className={
+                        passwordError || passwordMatch
+                          ? 'form__input error__input__container'
+                          : 'form__input'
+                      }
+                      placeholder=" "
+                      ref={passwordRef}
+                    />
+                    <label
+                      for=""
+                      className={
+                        passwordError || passwordMatch
+                          ? 'form__label error__label__container'
+                          : 'form__label'
+                      }
+                    >
+                      პაროლი
+                    </label>
+                    {passwordError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
+                    {passwordMatch && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          პაროლი არ ემთხვევა
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="form__div">
+                    <input
+                      type="text"
+                      value={repeatPassword}
+                      onChange={(e) => setRepeatPassword(e.target.value)}
+                      type="password"
+                      autoCapitalize="off"
+                      autoComplete="off"
+                      autoCorrect="off"
+                      className={
+                        repeatPasswordError || passwordMatch
+                          ? 'form__input error__input__container'
+                          : 'form__input'
+                      }
                       placeholder=" "
                       ref={repeatPasswordRef}
                       value={repeatPassword}
                       onChange={(e) => setRepeatPassword(e.target.value)}
                     />
-                    <label for="" className="form__label">
+                    <label
+                      for=""
+                      className={
+                        repeatPasswordError || passwordMatch
+                          ? 'form__label error__label__container'
+                          : 'form__label'
+                      }
+                    >
                       გაიმეორეთ პაროლი
                     </label>
+                    {repeatPasswordError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
+                    {passwordMatch && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          პაროლი არ ემთხვევა
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="form__buttonContainer signup__button-box">

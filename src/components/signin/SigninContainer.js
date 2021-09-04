@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import env from './../../application/environment/env.json'
+import axios from 'axios'
 
 export default function SigninContainer({ showSignin, handle }) {
   const [username, SetUsername] = useState('')
@@ -20,6 +22,14 @@ export default function SigninContainer({ showSignin, handle }) {
     } else {
       setUsernameError(false)
       setpasswordError(false)
+      axios
+        .post(`${env.host}/api/login`, {
+          email: username,
+          password: password,
+        })
+        .then((res) => {
+          console.log(res.data)
+        })
     }
   }
 
