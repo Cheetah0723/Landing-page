@@ -1,8 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function SignUpPages() {
-  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1)
-  const length = 2
+  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
+  const [firstName, setFirstName] = useState("");
+  const [firstNameError, setFirstNameError] = useState(false);
+  const firstNameRef = useRef();
+  const [lastName, setLastName] = useState("");
+  const [lastNameError, setLastNameError] = useState(false);
+  const lastNameRef = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const length = 2;
+  const identificationFirstPage = () => {
+    if (!firstName) {
+      setFirstNameError(true);
+      setLastNameError(false);
+      firstNameRef.current.focus();
+    } else if (!lastName) {
+      setLastNameError(true);
+      setFirstNameError(false);
+      lastNameRef.current.focus();
+    }
+  };
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <>
       <div className="signup__centerbox">
@@ -16,72 +41,120 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-2elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      ref={firstNameRef}
+                      className={
+                        firstNameError
+                          ? "form__input error__input__container"
+                          : "form__input"
+                      }
                       placeholder=" "
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label
+                      for=""
+                      className={
+                        firstNameError
+                          ? "form__label error__label__container"
+                          : "form__label"
+                      }
+                    >
                       სახელი
                     </label>
+                    {firstNameError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className={
+                        lastNameError
+                          ? "form__input error__input__container"
+                          : "form__input"
+                      }
+                      ref={lastNameRef}
                       placeholder=" "
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label
+                      for=""
+                      className={
+                        lastNameError
+                          ? "form__label error__label__container"
+                          : "form__label"
+                      }
+                    >
                       გვარი
                     </label>
+                    {lastNameError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="signup__block-1elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       ელ-ფოსტა
                     </label>
                   </div>
                 </div>
                 <div className="signup__block-2elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       პაროლი
                     </label>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <input
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
+                      value={repeatPassword}
+                      onChange={(e) => setRepeatPassword(e.target.value)}
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       გაიმეორეთ პაროლი
                     </label>
                   </div>
@@ -89,7 +162,7 @@ function SignUpPages() {
                 <div className="form__buttonContainer signup__button-box">
                   <button
                     className="form__signinButton signup__button"
-                    onClick={() => setShowSignUpNextPage(2)}
+                    onClick={() => identificationFirstPage()}
                   >
                     განაგრძე რეგისტრაცია
                   </button>
@@ -104,7 +177,7 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-3elements">
-                  <div class="form__div">
+                  <div className="form__div">
                     <select name="day" size="1">
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -138,7 +211,7 @@ function SignUpPages() {
                       <option value="31">31</option>
                     </select>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <select name="month" size="1">
                       <option value="jan">იანვარი</option>
                       <option value="feb">თებერვალი</option>
@@ -154,7 +227,7 @@ function SignUpPages() {
                       <option value="dec">დეკემბერი</option>
                     </select>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <select name="year" size="1">
                       <option value="2010">2010</option>
                       <option value="2009">2009</option>
@@ -165,20 +238,20 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-2elements">
-                  <div class="form__div ">
+                  <div className="form__div ">
                     <input
                       type="file"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      class="form__input"
+                      className="form__input"
                       placeholder=" "
                     />
-                    <label for="" class="form__label">
+                    <label for="" className="form__label">
                       ავატარი
                     </label>
                   </div>
-                  <div class="form__div">
+                  <div className="form__div">
                     <div className="signup__boxforgender">
                       <div>
                         <input
@@ -187,7 +260,7 @@ function SignUpPages() {
                           name="fav_language"
                           value="HTML"
                         />
-                          <label for="html">მამრობითი</label> {' '}
+                          <label for="html">მამრობითი</label> {" "}
                       </div>
                       <div>
                         <input
@@ -205,7 +278,7 @@ function SignUpPages() {
                   <button className="form__signinButton signup__button1">
                     რეგისტრაციის დასრულება
                   </button>
-                </div>{' '}
+                </div>{" "}
                 <div className="form__buttonContainer signup__button-box">
                   <button
                     className="form__RegButton signup__button2"
@@ -213,14 +286,14 @@ function SignUpPages() {
                   >
                     უკან დაბრუნება
                   </button>
-                </div>{' '}
+                </div>{" "}
               </>
             )}
           </form>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default SignUpPages
+export default SignUpPages;
