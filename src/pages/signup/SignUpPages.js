@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 function SignUpPages() {
-  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
+  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1)
+  const length = 2
   return (
     <>
       <div className="signup__centerbox">
@@ -11,7 +12,7 @@ function SignUpPages() {
               <>
                 <div className="signin__head-header signup__head">
                   <div className="signin__head-header-wrapper">
-                    პირადი ინფორმაცია ({showSignUpNextPage}/2)
+                    პირადი ინფორმაცია ({showSignUpNextPage}/{length})
                   </div>
                 </div>
                 <div className="signup__block-2elements">
@@ -99,7 +100,7 @@ function SignUpPages() {
               <>
                 <div className="signin__head-header signup__head">
                   <div className="signin__head-header-wrapper">
-                    პირადი ინფორმაცია ({showSignUpNextPage}/2)
+                    პირადი ინფორმაცია ({showSignUpNextPage}/{length})
                   </div>
                 </div>
                 <div className="signup__block-3elements">
@@ -186,7 +187,7 @@ function SignUpPages() {
                           name="fav_language"
                           value="HTML"
                         />
-                          <label for="html">მამრობითი</label> {" "}
+                          <label for="html">მამრობითი</label> {' '}
                       </div>
                       <div>
                         <input
@@ -204,22 +205,22 @@ function SignUpPages() {
                   <button className="form__signinButton signup__button1">
                     რეგისტრაციის დასრულება
                   </button>
-                </div>{" "}
+                </div>{' '}
                 <div className="form__buttonContainer signup__button-box">
                   <button
                     className="form__RegButton signup__button2"
-                    onClick={() => setShowSignUpNextPage(!showSignUpNextPage)}
+                    onClick={() => setShowSignUpNextPage(1)}
                   >
                     უკან დაბრუნება
                   </button>
-                </div>{" "}
+                </div>{' '}
               </>
             )}
           </form>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default SignUpPages;
+export default SignUpPages
