@@ -660,7 +660,7 @@
   margin-top: 80px;
 }
 
-.form__buttonContainer button:nth-child(1) {
+.form__signinButton {
   background-color: #1877f2;
   width: 100%;
   padding: 0 16px;
@@ -678,12 +678,12 @@
   height: 56px;
 }
 
-.form__buttonContainer button:nth-child(1):hover {
+.form__signinButton:hover {
   box-shadow: var(--shadow-overlay);
   background-color: #166fe5;
 }
 
-.form__buttonContainer button:nth-child(2) {
+.form__RegButton {
   border: none;
   background-color: transparent;
   color: #1877f2;
@@ -697,6 +697,6 @@
   transition: background 0.3s;
 }
 
-.form__buttonContainer button:nth-child(2):hover {
+.form__RegButton:hover {
   background-color: rgba(255, 255, 255, 0.04);
 }

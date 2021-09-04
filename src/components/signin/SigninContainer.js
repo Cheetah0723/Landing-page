@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SigninContainer({ showSignin, handle }) {
   return (
@@ -77,9 +77,9 @@ export default function SigninContainer({ showSignin, handle }) {
                     დაგავიწყდა მონაცემები?
                   </Link>
                   <div className="form__buttonContainer">
-                    <button>შესვლა</button>
+                    <button className="form__signinButton">შესვლა</button>
                     <Link to="/signup">
-                      <button>რეგისტრაცია</button>
+                      <button className="form__RegButton">რეგისტრაცია</button>
                     </Link>
                   </div>
                 </div>
@@ -89,5 +89,5 @@ export default function SigninContainer({ showSignin, handle }) {
         </div>
       </div>
     </>
-  )
+  );
 }
