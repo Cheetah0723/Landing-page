@@ -52,6 +52,12 @@ export default function SigninContainer({ showSignin, handle }) {
                       მომხმარებლის სახელი
                     </label>
                   </div>
+                  <div class="form__div">
+                    <input type="text" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">
+                      პაროლი
+                    </label>
+                  </div>
                 </div>
               </form>
             </div>
