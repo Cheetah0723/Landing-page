@@ -35,6 +35,11 @@ export default function SigninContainer({ showSignin, handle }) {
             </g>
           </svg>
         </div>
+        <div className="signin__head">
+          <div className="signin__head-header">
+            <div className="signin__head-header-wrapper">სისტემაში შესვლა</div>
+          </div>
+        </div>
       </div>
     </>
   );

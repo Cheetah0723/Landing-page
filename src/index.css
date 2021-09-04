@@ -526,3 +526,28 @@
 .signin__closeIconContainer svg {
   cursor: pointer;
 }
+
+.signin__head {
+  display: flex;
+  flex-grow: 1;
+  min-height: 510px;
+  flex-direction: column;
+}
+
+.signin__head-header {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.signin__head-header-wrapper {
+  display: flex;
+  font-family: "BOG Headline", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  margin: auto;
+  padding: 0 64px;
+}
