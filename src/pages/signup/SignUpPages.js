@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function SignUpPages() {
-  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1)
-  const length = 2
+  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const length = 2;
+  const identificationFirstPage = () => {};
   return (
     <>
       <div className="signup__centerbox">
@@ -24,6 +30,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       class="form__input"
                       placeholder=" "
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                     />
                     <label for="" class="form__label">
                       სახელი
@@ -37,6 +45,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       class="form__input"
                       placeholder=" "
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                     />
                     <label for="" class="form__label">
                       გვარი
@@ -52,6 +62,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       class="form__input"
                       placeholder=" "
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     <label for="" class="form__label">
                       ელ-ფოსტა
@@ -67,6 +79,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       class="form__input"
                       placeholder=" "
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                     <label for="" class="form__label">
                       პაროლი
@@ -80,6 +94,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       class="form__input"
                       placeholder=" "
+                      value={repeatPassword}
+                      onChange={(e) => setRepeatPassword(e.target.value)}
                     />
                     <label for="" class="form__label">
                       გაიმეორეთ პაროლი
@@ -89,7 +105,7 @@ function SignUpPages() {
                 <div className="form__buttonContainer signup__button-box">
                   <button
                     className="form__signinButton signup__button"
-                    onClick={() => setShowSignUpNextPage(2)}
+                    onClick={() => identificationFirstPage()}
                   >
                     განაგრძე რეგისტრაცია
                   </button>
@@ -187,7 +203,7 @@ function SignUpPages() {
                           name="fav_language"
                           value="HTML"
                         />
-                          <label for="html">მამრობითი</label> {' '}
+                          <label for="html">მამრობითი</label> {" "}
                       </div>
                       <div>
                         <input
@@ -205,7 +221,7 @@ function SignUpPages() {
                   <button className="form__signinButton signup__button1">
                     რეგისტრაციის დასრულება
                   </button>
-                </div>{' '}
+                </div>{" "}
                 <div className="form__buttonContainer signup__button-box">
                   <button
                     className="form__RegButton signup__button2"
@@ -213,14 +229,14 @@ function SignUpPages() {
                   >
                     უკან დაბრუნება
                   </button>
-                </div>{' '}
+                </div>{" "}
               </>
             )}
           </form>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default SignUpPages
+export default SignUpPages;
