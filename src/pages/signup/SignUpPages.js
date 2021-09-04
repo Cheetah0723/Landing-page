@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function SignUpPages() {
   const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
@@ -16,6 +17,10 @@ function SignUpPages() {
       firstNameRef.current.focus();
     }
   };
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <>
       <div className="signup__centerbox">
