@@ -81,15 +81,33 @@ function SignUpPages() {
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      className="form__input"
+                      className={
+                        lastNameError
+                          ? "form__input error__input__container"
+                          : "form__input"
+                      }
                       ref={lastNameRef}
                       placeholder=" "
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                     />
-                    <label for="" className="form__label">
+                    <label
+                      for=""
+                      className={
+                        lastNameError
+                          ? "form__label error__label__container"
+                          : "form__label"
+                      }
+                    >
                       გვარი
                     </label>
+                    {lastNameError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="signup__block-1elements">
