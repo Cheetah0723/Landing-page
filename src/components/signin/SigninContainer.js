@@ -16,6 +16,7 @@ export default function SigninContainer({ showSignin, handle }) {
             viewBox="0 0 48 48"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={handle}
           >
             <g
               id="icons-48-system-close-"
