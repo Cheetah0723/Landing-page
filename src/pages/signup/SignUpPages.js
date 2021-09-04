@@ -10,8 +10,14 @@ function SignUpPages() {
   const [lastNameError, setLastNameError] = useState(false);
   const lastNameRef = useRef();
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const emailRef = useRef();
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const passwordRef = useRef();
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [repeatPasswordError, setRepeatPasswordError] = useState("");
+  const repeatPasswordRef = useRef();
   const length = 2;
   const identificationFirstPage = () => {
     if (!firstName) {
@@ -22,6 +28,31 @@ function SignUpPages() {
       setLastNameError(true);
       setFirstNameError(false);
       lastNameRef.current.focus();
+    }
+    else if(!email){
+      setEmailError(true);
+      setEmailError(false);
+      setEmailError(false);
+      setEmailError(false);
+      setEmailError(false);
+      emailRef.current.focus();
+
+    }
+    else if(!password){
+      setPasswordError(true);
+      setPasswordError(false);
+      setPasswordError(false);
+      setPasswordError(false);
+      setPasswordError(false);
+      passwordRef.current.focus();
+    }
+    else if(!repeatPassword){
+      setRepeatPasswordError(true);
+      setRepeatPasswordError(false);
+      setRepeatPasswordError(false);
+      setRepeatPasswordError(false);
+      setRepeatPasswordError(false);
+      repeatPasswordRef.current.focus();
     }
   };
   const { pathname } = useLocation();
@@ -112,30 +143,53 @@ function SignUpPages() {
                 </div>
                 <div className="signup__block-1elements">
                   <div className="form__div">
-                    <input
+                    <input type="text" value={email} onChange={e=>setEmail(e.target.value)}
                       type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      className="form__input"
+                      className={
+                        emailError
+                          ? "form__input error__input__container"
+                          : "form__input"
+                      }
+                      ref={emailRef}
                       placeholder=" "
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label for="" className="form__label">
+                     <label
+                      for=""
+                      className={
+                        emailError
+                          ? "form__label error__label__container"
+                          : "form__label"
+                      }
+                    >
                       ელ-ფოსტა
                     </label>
+                    {emailError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="signup__block-2elements">
                   <div className="form__div">
-                    <input
+                  {passwordError && (
+                    <p> შეიყვანეთ პაროლი</p>
+                  )}
+                  <input type="text" value={password} onChange={e=>setPassword(e.target.value)}
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
                       className="form__input"
                       placeholder=" "
+                      ref={passwordRef}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
@@ -144,13 +198,17 @@ function SignUpPages() {
                     </label>
                   </div>
                   <div className="form__div">
-                    <input
+                  {repeatPasswordError && (
+                    <p> გაიმეორეთ პაროლი</p>
+                  )}
+                  <input type="text" value={repeatPassword} onChange={e=>setRepeatPassword(e.target.value)}
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
                       className="form__input"
                       placeholder=" "
+                      ref={repeatPasswordRef}
                       value={repeatPassword}
                       onChange={(e) => setRepeatPassword(e.target.value)}
                     />
