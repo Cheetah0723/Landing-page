@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SigninContainer({ showSignin, handle }) {
   return (
@@ -53,11 +54,18 @@ export default function SigninContainer({ showSignin, handle }) {
                     </label>
                   </div>
                   <div class="form__div">
-                    <input type="text" class="form__input" placeholder=" " />
+                    <input
+                      type="password"
+                      class="form__input"
+                      placeholder=" "
+                    />
                     <label for="" class="form__label">
                       პაროლი
                     </label>
                   </div>
+                  <Link className="form__resetDATA">
+                    დაგავიწყდა მონაცემები?
+                  </Link>
                 </div>
               </form>
             </div>

@@ -586,6 +586,9 @@
   height: 56px;
   margin-bottom: 1.5rem;
 }
+.form__div:nth-child(2) {
+  margin-bottom: 1rem;
+}
 .form__input {
   position: absolute;
   top: 0;
@@ -613,29 +616,13 @@
   font-size: 12px;
   transition: 0.3s;
 }
-.form__button {
-  display: block;
-  margin-left: auto;
-  padding: 0.75rem 2rem;
-  outline: none;
-  border: none;
-  background-color: var(--first-color);
-  color: #fff;
-  font-size: var(--normal-font-size);
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.form__button:hover {
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
-}
 
 /*Input focus move up label*/
 .form__input:focus + .form__label {
   top: -0.5rem;
   left: 0.8rem;
   color: #1877f2;
-  font-size: var(--small-font-size);
+  font-size: 0.75rem;
   background-color: var(--container-color);
   font-weight: 500;
   z-index: 10;
@@ -646,7 +633,7 @@
   top: -0.5rem;
   background-color: var(--container-color);
   left: 0.8rem;
-  font-size: var(--small-font-size);
+  font-size: 0.75rem;
   font-weight: 500;
   z-index: 10;
 }
@@ -655,25 +642,11 @@
 .form__input:focus {
   border: 1px solid #1877f2;
 }
-.form {
-  width: 360px;
-  padding: 4rem 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
-}
-.form__title {
-  font-weight: 400;
-  margin-bottom: 3rem;
-}
 
-:root {
-  /*===== Colores =====*/
-  --first-color: #1a73e8;
-  --input-color: #80868b;
-  --border-color: #dadce0;
-
-  /*===== Fuente y tipografia =====*/
-  --body-font: "Roboto", sans-serif;
-  --normal-font-size: 1rem;
-  --small-font-size: 0.75rem;
+.form__resetDATA {
+  font-family: "MarkGEO", sans-serif;
+  color: #1877f2;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
 }
