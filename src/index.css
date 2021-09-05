@@ -813,6 +813,10 @@
   width: 145px !important;
 }
 
+.big__div__container {
+  width: 190px !important;
+}
+
 .error__input__container {
   border: 1px solid rgb(241, 45, 45) !important;
 }

@@ -6,6 +6,7 @@ import axios from "axios";
 export default function SigninContainer({ showSignin, handle }) {
   const [username, SetUsername] = useState("");
   const [usernameError, setUsernameError] = useState(false);
+  const [usernameExistError, setUsernameExistError] = useState(false);
   const [password, Setpassword] = useState("");
   const [passwordError, setpasswordError] = useState(false);
   const usernameRef = useRef();
@@ -28,7 +29,11 @@ export default function SigninContainer({ showSignin, handle }) {
           password: password,
         })
         .then((res) => {
-          console.log(res.data);
+          if (res.data.message == "User does not exist") {
+            setUsernameExistError(true);
+            setUsernameError(true);
+            usernameRef.current.focus();
+          }
         });
     }
   };
@@ -114,9 +119,17 @@ export default function SigninContainer({ showSignin, handle }) {
                       მომხმარებლის სახელი
                     </label>
                     {usernameError && (
-                      <div className="error__div__container">
+                      <div
+                        className={
+                          usernameExistError
+                            ? "error__div__container big__div__container"
+                            : "error__div__container"
+                        }
+                      >
                         <span className="error__div__container__span">
-                          სავალდებულო ველი
+                          {usernameExistError
+                            ? "მომხმარებელი არ არსებობს"
+                            : "სავალდებულო ველი"}
                         </span>
                       </div>
                     )}
