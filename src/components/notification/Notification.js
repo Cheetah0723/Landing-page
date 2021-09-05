@@ -5,7 +5,6 @@ export default function Notification() {
   const { notification } = React.useContext(ApplicationContext);
   return (
     <>
-      {console.log(notification)}
       <section className="discount section">
         {notification.slice(0, 1).map((item) => {
           const { title, image, description } = item;
