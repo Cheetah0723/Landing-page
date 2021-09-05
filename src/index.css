@@ -801,6 +801,7 @@
   padding: 5px 10px;
   display: flex;
   align-items: center;
+  z-index: 999;
   width: 145px !important;
 }
 
