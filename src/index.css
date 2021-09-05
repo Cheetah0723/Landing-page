@@ -759,6 +759,7 @@
   background-color: var(--container-color);
   border-radius: 8px;
   width: 636px;
+  height: 447px;
 }
 .signup__centerbox {
   display: flex;
