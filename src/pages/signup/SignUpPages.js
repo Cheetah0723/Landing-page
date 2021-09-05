@@ -90,6 +90,11 @@ function SignUpPages() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  useEffect(() => {
+    if (password == repeatPassword) {
+      setPasswordMatch(false);
+    }
+  }, [password, repeatPassword]);
   return (
     <>
       <div className="signup__centerbox">
