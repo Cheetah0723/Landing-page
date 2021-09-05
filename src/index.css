@@ -836,6 +836,10 @@
   transform: rotate(45deg);
 }
 
+.small__div__container {
+  width: 137px !important;
+}
+
 .big__error__container {
   top: -200px !important;
 }

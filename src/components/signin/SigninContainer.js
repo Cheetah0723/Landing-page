@@ -9,6 +9,7 @@ export default function SigninContainer({ showSignin, handle }) {
   const [usernameExistError, setUsernameExistError] = useState(false);
   const [password, Setpassword] = useState("");
   const [passwordError, setpasswordError] = useState(false);
+  const [passwordIncorrect, setPasswordIncrorrect] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
   const identification = () => {
@@ -32,8 +33,16 @@ export default function SigninContainer({ showSignin, handle }) {
           if (res.data.message == "User does not exist") {
             setUsernameExistError(true);
             setUsernameError(true);
+            setPasswordIncrorrect(false);
+            setpasswordError(false);
             usernameRef.current.focus();
+          } else if (res.data.message == "The password is incorrect") {
+            setUsernameExistError(false);
+            setUsernameError(false);
+            setPasswordIncrorrect(true);
+            setpasswordError(true);
           }
+          console.log(res.data);
         });
     }
   };
@@ -169,9 +178,17 @@ export default function SigninContainer({ showSignin, handle }) {
                       პაროლი
                     </label>
                     {passwordError && (
-                      <div className="error__div__container">
+                      <div
+                        className={
+                          passwordIncorrect
+                            ? "error__div__container small__div__container"
+                            : "error__div__container"
+                        }
+                      >
                         <span className="error__div__container__span">
-                          სავალდებულო ველი
+                          {passwordIncorrect
+                            ? "პაროლი არასწორია"
+                            : "სავალდებულო ველი"}
                         </span>
                       </div>
                     )}
