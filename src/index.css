@@ -555,6 +555,7 @@
 .btn__none__hov {
   pointer-events: none;
 }
+
 .btn__none__hov:hover {
   background-color: transparent !important;
 }
