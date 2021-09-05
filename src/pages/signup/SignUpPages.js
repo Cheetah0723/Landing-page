@@ -193,7 +193,14 @@ function SignUpPages() {
                       }
                       placeholder=" "
                       value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      onChange={(e) => {
+                        setFirstName(e.target.value);
+                        if (firstName.length < 0) {
+                          setFirstNameError(true);
+                        } else {
+                          setFirstNameError(false);
+                        }
+                      }}
                     />
                     <label
                       for=""
@@ -227,7 +234,14 @@ function SignUpPages() {
                       ref={lastNameRef}
                       placeholder=" "
                       value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
+                      onChange={(e) => {
+                        setLastName(e.target.value);
+                        if (lastName.length < 0) {
+                          setLastNameError(true);
+                        } else {
+                          setLastNameError(false);
+                        }
+                      }}
                     />
                     <label
                       for=""
@@ -252,9 +266,6 @@ function SignUpPages() {
                   <div className="form__div">
                     <input
                       type="text"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      type="text"
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
@@ -266,7 +277,14 @@ function SignUpPages() {
                       ref={emailRef}
                       placeholder=" "
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (email.length < 0) {
+                          setEmailError(true);
+                        } else {
+                          setEmailError(false);
+                        }
+                      }}
                     />
                     <label
                       for=""
@@ -292,7 +310,14 @@ function SignUpPages() {
                     <input
                       type="text"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                        if (password.length < 0) {
+                          setPasswordError(true);
+                        } else {
+                          setPasswordError(false);
+                        }
+                      }}
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
@@ -334,7 +359,14 @@ function SignUpPages() {
                     <input
                       type="text"
                       value={repeatPassword}
-                      onChange={(e) => setRepeatPassword(e.target.value)}
+                      onChange={(e) => {
+                        setRepeatPassword(e.target.value);
+                        if (repeatPassword.length < 0) {
+                          setRepeatPassword(true);
+                        } else {
+                          setRepeatPassword(false);
+                        }
+                      }}
                       type="password"
                       autoCapitalize="off"
                       autoComplete="off"
