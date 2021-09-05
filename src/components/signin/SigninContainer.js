@@ -1,37 +1,37 @@
-import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import env from './../../application/environment/env.json'
-import axios from 'axios'
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import env from "./../../application/environment/env.json";
+import axios from "axios";
 
 export default function SigninContainer({ showSignin, handle }) {
-  const [username, SetUsername] = useState('')
-  const [usernameError, setUsernameError] = useState(false)
-  const [password, Setpassword] = useState('')
-  const [passwordError, setpasswordError] = useState(false)
-  const usernameRef = useRef()
-  const passwordRef = useRef()
+  const [username, SetUsername] = useState("");
+  const [usernameError, setUsernameError] = useState(false);
+  const [password, Setpassword] = useState("");
+  const [passwordError, setpasswordError] = useState(false);
+  const usernameRef = useRef();
+  const passwordRef = useRef();
   const identification = () => {
     if (!username) {
-      setUsernameError(true)
-      setpasswordError(false)
-      usernameRef.current.focus()
+      setUsernameError(true);
+      setpasswordError(false);
+      usernameRef.current.focus();
     } else if (!password) {
-      setUsernameError(false)
-      setpasswordError(true)
-      passwordRef.current.focus()
+      setUsernameError(false);
+      setpasswordError(true);
+      passwordRef.current.focus();
     } else {
-      setUsernameError(false)
-      setpasswordError(false)
+      setUsernameError(false);
+      setpasswordError(false);
       axios
         .post(`${env.host}/api/login`, {
           email: username,
           password: password,
         })
         .then((res) => {
-          console.log(res.data)
-        })
+          console.log(res.data);
+        });
     }
-  }
+  };
 
   return (
     <>
@@ -82,7 +82,14 @@ export default function SigninContainer({ showSignin, handle }) {
                     <input
                       type="text"
                       value={username}
-                      onChange={(e) => SetUsername(e.target.value)}
+                      onChange={(e) => {
+                        SetUsername(e.target.value);
+                        if (username.length < 0) {
+                          setUsernameError(true);
+                        } else {
+                          setUsernameError(false);
+                        }
+                      }}
                       ref={usernameRef}
                       type="text"
                       autoCapitalize="off"
@@ -90,8 +97,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       autoCorrect="off"
                       className={
                         usernameError
-                          ? 'form__input error__input__container'
-                          : 'form__input'
+                          ? "form__input error__input__container"
+                          : "form__input"
                       }
                       placeholder=" "
                     />
@@ -100,8 +107,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       class="form__label"
                       className={
                         usernameError
-                          ? 'form__label error__label__container'
-                          : 'form__label'
+                          ? "form__label error__label__container"
+                          : "form__label"
                       }
                     >
                       მომხმარებლის სახელი
@@ -118,13 +125,20 @@ export default function SigninContainer({ showSignin, handle }) {
                     <input
                       type="text"
                       value={password}
-                      onChange={(a) => Setpassword(a.target.value)}
+                      onChange={(a) => {
+                        Setpassword(a.target.value);
+                        if (password.length < 0) {
+                          setpasswordError(true);
+                        } else {
+                          setpasswordError(false);
+                        }
+                      }}
                       ref={passwordRef}
                       type="password"
                       className={
                         passwordError
-                          ? 'form__input error__input__container'
-                          : 'form__input'
+                          ? "form__input error__input__container"
+                          : "form__input"
                       }
                       autoCapitalize="off"
                       autoComplete="off"
@@ -135,8 +149,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       for=""
                       className={
                         passwordError
-                          ? 'form__label error__label__container'
-                          : 'form__label'
+                          ? "form__label error__label__container"
+                          : "form__label"
                       }
                     >
                       პაროლი
@@ -170,5 +184,5 @@ export default function SigninContainer({ showSignin, handle }) {
         </div>
       </div>
     </>
-  )
+  );
 }
