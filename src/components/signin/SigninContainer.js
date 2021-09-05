@@ -41,6 +41,12 @@ export default function SigninContainer({ showSignin, handle }) {
             setUsernameError(false);
             setPasswordIncrorrect(true);
             setpasswordError(true);
+            passwordRef.current.focus();
+          } else {
+            setUsernameExistError(false);
+            setUsernameError(false);
+            setPasswordIncrorrect(false);
+            setpasswordError(false);
           }
           console.log(res.data);
         });
