@@ -552,6 +552,13 @@
   padding: 0 64px;
 }
 
+.btn__none__hov {
+  pointer-events: none;
+}
+.btn__none__hov:hover {
+  background-color: transparent !important;
+}
+
 .signin__head-content {
   display: flex;
   flex-grow: 1;
