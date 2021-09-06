@@ -29,9 +29,18 @@ router.route("/signup").post(async (req, res) => {
         dateOfBirth: dateOfBirth,
         avatar: avatar,
         gender: gender,
-        role: role
+        role: role,
       }).save();
-      res.json({ success: true });
+      const userFor = {
+        userName: userName,
+        email: email,
+        password: hashedPassword,
+        dateOfBirth: dateOfBirth,
+        avatar: avatar,
+        gender: gender,
+        role: role,
+      };
+      res.json({ user: userFor, success: true });
     }
   });
 });

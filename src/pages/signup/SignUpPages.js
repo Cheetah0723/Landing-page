@@ -116,6 +116,7 @@ function SignUpPages() {
   const { pathname } = useLocation();
 
   const sendInformation = () => {
+    // if-ebi unda aq
     const data = {
       userName: `${firstName} ${lastName}`,
       email: email,
@@ -124,7 +125,9 @@ function SignUpPages() {
       gender: gender,
     };
     axios.post(`${env.host}/api/signup`, data).then((res) => {
-      console.log(res);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      localStorage.setItem("logged", true);
+      window.location.href = "/";
     });
   };
 

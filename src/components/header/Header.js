@@ -1,29 +1,29 @@
-import React from 'react'
-import { HeaderFixtures } from '../../fixtures/header/HeaderFixtures'
-import SigninContainer from '../signin/SigninContainer'
+import React from "react";
+import { HeaderFixtures } from "../../fixtures/header/HeaderFixtures";
+import SigninContainer from "../signin/SigninContainer";
 
 export default function Header() {
-  const [showSignin, setShowSignin] = React.useState(false)
+  const [showSignin, setShowSignin] = React.useState(false);
   const renderClassNames = (item) => {
     if (item.route == window.location.hash) {
-      return 'nav__link active-link'
+      return "nav__link active-link";
     } else {
-      return 'nav__link'
+      return "nav__link";
     }
-  }
+  };
   React.useEffect(() => {
-    if (window.location.hash == '') {
-      window.location.hash = '#home'
-      window.scrollTo(1, 1)
+    if (window.location.hash == "") {
+      window.location.hash = "#home";
+      window.scrollTo(1, 1);
     }
-  })
+  });
   return (
     <>
       <SigninContainer
-        showSignin={showSignin && 'true'}
+        showSignin={showSignin && "true"}
         handle={() => {
-          setShowSignin(!showSignin)
-          document.body.style.overflowY = 'visible'
+          setShowSignin(!showSignin);
+          document.body.style.overflowY = "visible";
         }}
       />
       <header class="header" id="header">
@@ -43,16 +43,16 @@ export default function Header() {
                       </a>
                     </li>
                   </>
-                )
+                );
               })}
               <button
                 className="nav__btn"
                 onClick={() => {
-                  setShowSignin(!showSignin)
-                  document.body.style.overflowY = 'hidden'
+                  setShowSignin(!showSignin);
+                  document.body.style.overflowY = "hidden";
                 }}
               >
-                შესვლა
+                {localStorage.getitem("logged") == "true" ? "გასვლა" : "შესვლა"}
               </button>
             </ul>
 
@@ -67,5 +67,5 @@ export default function Header() {
         </nav>
       </header>
     </>
-  )
+  );
 }
