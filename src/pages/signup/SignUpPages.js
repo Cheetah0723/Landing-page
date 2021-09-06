@@ -51,6 +51,7 @@ function SignUpPages() {
       emailRef.current.focus();
     } else if(!/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
       setEmailInputError(true);
+      setPasswordMatch(false);
     } else if (!password) {
       setPasswordError(true);
       setEmailError(false);
@@ -285,7 +286,7 @@ function SignUpPages() {
                       autoComplete="off"
                       autoCorrect="off"
                       className={
-                        emailError
+                        emailError || emailInputError
                           ? "form__input error__input__container"
                           : "form__input"
                       }
@@ -305,7 +306,7 @@ function SignUpPages() {
                     <label
                       for=""
                       className={
-                        emailError
+                        emailError || emailInputError
                           ? "form__label error__label__container"
                           : "form__label"
                       }
@@ -321,8 +322,8 @@ function SignUpPages() {
                     )}
                     {emailInputError && (
                       <div className="error__div__container">
-                        <span className="error__div__container__span">
-                          ელ.ფოსტა შეყვანილია არასწორად
+                        <span className="error__div__container__span" style={{width:"200px"}}>
+                          ელ.ფოსტა არასწორია
                         </span>
                       </div>
                     )}
