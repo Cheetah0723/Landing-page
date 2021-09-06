@@ -18,6 +18,7 @@ function SignUpPages() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [repeatPasswordError, setRepeatPasswordError] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(false);
+  const [emailInputError, setEmailInputError]=useState(false);
   const repeatPasswordRef = useRef();
   const length = 2;
   const identificationFirstPage = () => {
@@ -28,6 +29,7 @@ function SignUpPages() {
       setLastNameError(false);
       setPasswordError(false);
       setPasswordMatch(false);
+      setEmailInputError(false);
       firstNameRef.current.focus();
     } else if (!lastName) {
       setLastNameError(true);
@@ -36,6 +38,7 @@ function SignUpPages() {
       setFirstNameError(false);
       setPasswordError(false);
       setPasswordMatch(false);
+      setEmailInputError(false);
       lastNameRef.current.focus();
     } else if (!email) {
       setEmailError(true);
@@ -44,7 +47,10 @@ function SignUpPages() {
       setPasswordError(false);
       setRepeatPasswordError(false);
       setPasswordMatch(false);
+      setEmailInputError(false);
       emailRef.current.focus();
+    } else if(!/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+      setEmailInputError(true);
     } else if (!password) {
       setPasswordError(true);
       setEmailError(false);
@@ -52,6 +58,7 @@ function SignUpPages() {
       setLastNameError(false);
       setRepeatPasswordError(false);
       setPasswordMatch(false);
+      setEmailInputError(false);
       passwordRef.current.focus();
     } else if (!repeatPassword) {
       setRepeatPasswordError(true);
@@ -60,6 +67,7 @@ function SignUpPages() {
       setLastNameError(false);
       setPasswordError(false);
       setPasswordMatch(false);
+      setEmailInputError(false);
       repeatPasswordRef.current.focus();
     } else if (password != repeatPassword) {
       setPasswordMatch(true);
@@ -68,6 +76,7 @@ function SignUpPages() {
       setFirstNameError(false);
       setLastNameError(false);
       setPasswordError(false);
+      setEmailInputError(false);
     } else {
       setRepeatPasswordError(false);
       setEmailError(false);
@@ -75,6 +84,7 @@ function SignUpPages() {
       setLastNameError(false);
       setPasswordError(false);
       setPasswordMatch(false);
+      setEmailInputError(false);
       setShowSignUpNextPage(2);
     }
   };
@@ -288,6 +298,7 @@ function SignUpPages() {
                           setEmailError(true);
                         } else {
                           setEmailError(false);
+                          setEmailInputError(false);
                         }
                       }}
                     />
@@ -305,6 +316,13 @@ function SignUpPages() {
                       <div className="error__div__container">
                         <span className="error__div__container__span">
                           სავალდებულო ველი
+                        </span>
+                      </div>
+                    )}
+                    {emailInputError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          ელ.ფოსტა შეყვანილია არასწორად
                         </span>
                       </div>
                     )}
