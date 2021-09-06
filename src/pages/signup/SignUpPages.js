@@ -109,8 +109,7 @@ function SignUpPages() {
 
   const sendInformation = () => {
     const data = {
-      firstName: firstName,
-      lastName: lastName,
+      userName: `${firstName} ${lastName}`,
       email: email,
       password: password,
       dateOfBirth: `${userDateDay}/${userDateMonth}/${userDateYear}`,
