@@ -52,7 +52,7 @@ export default function Header() {
                   document.body.style.overflowY = "hidden";
                 }}
               >
-                {localStorage.getitem("logged") == "true" ? "გასვლა" : "შესვლა"}
+                {localStorage.getItem("logged") == "true" ? "გასვლა" : "შესვლა"}
               </button>
             </ul>
 
