@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+const DateSchema = mongoose.Schema({
+    day: {
+        type: String
+    },
+    month: {
+        type: String
+    },
+    year: {
+        type: String
+    }
+})
+
 const UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -7,7 +19,7 @@ const UserSchema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        rquired: true
+        required: true
     },
     email: {
         type: String,
@@ -17,6 +29,17 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    dateOfBirth: [DateSchema],
+    avatar: {
+        type: String,
+        default: "assets/images/default.png"
+    },
+    gender: {
+        type: String,
+    },
+    role: {
+        type: String,
     }
 });
 
