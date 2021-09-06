@@ -123,7 +123,7 @@ function SignUpPages() {
       password: password,
       dateOfBirth: `${userDateDay}/${userDateMonth}/${userDateYear}`,
       gender: gender,
-      role: 'user'
+      role: "user",
     };
     axios.post(`${env.host}/api/signup`, data).then((res) => {
       localStorage.setItem("user", JSON.stringify(res.data.user));
@@ -144,6 +144,19 @@ function SignUpPages() {
       setPasswordMatch(false);
     }
   }, [password, repeatPassword]);
+  useEffect(() => {
+    if (email.length > 0) {
+      if (
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          email
+        )
+      ) {
+        setEmailInputError(false);
+      } else {
+        setEmailInputError(true);
+      }
+    }
+  }, [email]);
   return (
     <>
       <div className="signup__centerbox">
