@@ -18,6 +18,10 @@ router.route("/login").post(async (req, res) => {
               firstName: result.firstName,
               lastName: result.lastName,
               email: result.email,
+              dateOfBirth: result.dateOfBirth,
+              avatar: result.avatar,
+              gender: result.gender,
+              role: result.role
             },
             success: true,
           });
