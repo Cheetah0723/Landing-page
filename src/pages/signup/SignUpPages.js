@@ -572,33 +572,33 @@ function SignUpPages() {
                 <div className="signup__block-1elements">
                   
                   <div className="form__div">
-                    <div className="signup__boxforgender" onChange={(e) => { setGender(e.target.value)}} style={{justifyContent:"space-between",display:"flex"}}>
+                    <div className="signup__boxforgender" onChange={(e) => { setGender(e.target.value)}} style={{justifyContent:"space-between",display:"flex",textAlign:"center"}}>
                       <div>
                         <input
                           type="radio"
-                          id="html"
+                          id="male"
                           name="fav_language"
                           value="მამრობითი"
                         />
-                          <label for="html">მამრობითი</label> {" "}
+                          <label for="male">მამრობითი</label> {" "}
                       </div>
                       <div >
                         <input
                           type="radio"
-                          id="css"
+                          id="female"
                           name="fav_language"
                           value="მდედრობითი"
                         />
-                          <label for="css">მდედრობითი</label>
+                          <label for="female">მდედრობითი</label>
                       </div>
                       <div >
                         <input
                           type="radio"
-                          id="css"
+                          id="flexible"
                           name="fav_language"
                           value="მორგებული"
                         />
-                          <label for="css">მორგებული</label>
+                          <label for="flexible">მორგებული</label>
                       </div>
                     </div>
                   </div>
