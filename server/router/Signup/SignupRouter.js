@@ -7,6 +7,10 @@ router.route("/signup").post(async (req, res) => {
   const lastName = req.body.lastName;
   const email = req.body.email;
   const password = req.body.password;
+  const dateOfBirth = req.body.dateOfBirth;
+  const avatar = req.body.avatar;
+  const gender = req.body.gender;
+  const role = req.body.role;
 
   try {
     var salt = await bcrypt.genSalt();
@@ -24,6 +28,10 @@ router.route("/signup").post(async (req, res) => {
         lastName: lastName,
         email: email,
         password: hashedPassword,
+        dateOfBirth: dateOfBirth,
+        avatar: avatar,
+        gender: gender,
+        role: role
       }).save();
     }
   });
