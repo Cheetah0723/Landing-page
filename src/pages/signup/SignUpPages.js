@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import axios from "axios";
+import env from "./../../application/environment/env.json";
 function SignUpPages() {
   const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
   const [firstName, setFirstName] = useState("");
@@ -21,6 +22,10 @@ function SignUpPages() {
   const [emailInputError, setEmailInputError]=useState(false);
   const repeatPasswordRef = useRef();
   const length = 2;
+  const [gender, setGender] = useState('');
+  const [userDateDay, setUserDateDay] = useState('1');
+  const [userDateMonth, setUserDateMonth] = useState('jan');
+  const [userDateYear, setUserDateYear] = useState('2010');
   const identificationFirstPage = () => {
     if (!firstName) {
       setFirstNameError(true);
@@ -97,6 +102,23 @@ function SignUpPages() {
   };
 
   const { pathname } = useLocation();
+
+  const sendInformation = () => {
+    const data = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      dateOfBirth: `${userDateDay}/${userDateMonth}/${userDateYear}`,
+      gender: gender,
+
+    }
+    axios.post(`${env.host}/api/signup`, data).then((res) => {
+      console.log(res);
+    })
+  }
+
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -323,7 +345,7 @@ function SignUpPages() {
                     {emailInputError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span" style={{width:"200px"}}>
-                          ელ.ფოსტა არასწორია
+                          შიგ ხო არა გაქ?
                         </span>
                       </div>
                     )}
@@ -480,7 +502,7 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-3elements">
-                  <div className="form__div">
+                  <div className="form__div" onChange={(e) => { setUserDateDay(e.target.value)}}>
                     <select name="day" size="1">
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -514,7 +536,7 @@ function SignUpPages() {
                       <option value="31">31</option>
                     </select>
                   </div>
-                  <div className="form__div">
+                  <div className="form__div" onChange={(e) => { setUserDateMonth(e.target.value)}}>
                     <select name="month" size="1">
                       <option value="jan">იანვარი</option>
                       <option value="feb">თებერვალი</option>
@@ -530,13 +552,18 @@ function SignUpPages() {
                       <option value="dec">დეკემბერი</option>
                     </select>
                   </div>
-                  <div className="form__div">
+                  <div className="form__div" onChange={(e) => { setUserDateYear(e.target.value)}}>
                     <select name="year" size="1">
                       <option value="2010">2010</option>
                       <option value="2009">2009</option>
                       <option value="2008">2008</option>
                       <option value="2007">2007</option>
                       <option value="2006">2006</option>
+                      <option value="2005">2005</option>
+                      <option value="2004">2004</option>
+                      <option value="2003">2003</option>
+                      <option value="2002">2002</option>
+                      <option value="2001">2001</option>
                     </select>
                   </div>
                 </div>
@@ -555,22 +582,22 @@ function SignUpPages() {
                     </label>
                   </div>
                   <div className="form__div">
-                    <div className="signup__boxforgender">
+                    <div className="signup__boxforgender" onChange={(e) => { setGender(e.target.value)}}>
                       <div>
                         <input
                           type="radio"
                           id="html"
                           name="fav_language"
-                          value="HTML"
+                          value="მამრობითი"
                         />
                           <label for="html">მამრობითი</label> {" "}
                       </div>
-                      <div>
+                      <div >
                         <input
                           type="radio"
                           id="css"
                           name="fav_language"
-                          value="CSS"
+                          value="მდედრობითი"
                         />
                           <label for="css">მდედრობითი</label>
                       </div>
@@ -578,7 +605,7 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="form__buttonContainer signup__button-box">
-                  <button className="form__signinButton signup__button1">
+                  <button className="form__signinButton signup__button1"  onClick={() => sendInformation()}>
                     რეგისტრაციის დასრულება
                   </button>
                 </div>{" "}
