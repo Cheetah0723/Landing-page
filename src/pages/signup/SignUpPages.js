@@ -118,7 +118,9 @@ function SignUpPages() {
     })
   }
 
-
+  useEffect(() => {
+    document.body.style.overflowY = "scroll";
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
