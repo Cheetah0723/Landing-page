@@ -1,64 +1,67 @@
-import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import env from "./../../application/environment/env.json";
-import axios from "axios";
+import React, { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import env from './../../application/environment/env.json'
+import axios from 'axios'
 
 export default function SigninContainer({ showSignin, handle }) {
-  const [username, SetUsername] = useState("");
-  const [usernameError, setUsernameError] = useState(false);
-  const [usernameExistError, setUsernameExistError] = useState(false);
-  const [password, Setpassword] = useState("");
-  const [passwordError, setpasswordError] = useState(false);
-  const [passwordIncorrect, setPasswordIncrorrect] = useState(false);
-  const usernameRef = useRef();
-  const passwordRef = useRef();
-  const [spinner, setSpinner]= useState(false);
+  const [username, SetUsername] = useState('')
+  const [usernameError, setUsernameError] = useState(false)
+  const [usernameExistError, setUsernameExistError] = useState(false)
+  const [password, Setpassword] = useState('')
+  const [passwordError, setpasswordError] = useState(false)
+  const [passwordIncorrect, setPasswordIncrorrect] = useState(false)
+  const usernameRef = useRef()
+  const passwordRef = useRef()
+  const [spinner, setSpinner] = useState(false)
   const identification = () => {
     if (!username) {
-      setUsernameError(true);
-      setpasswordError(false);
-      setSpinner(false);
-      usernameRef.current.focus();
+      setUsernameError(true)
+      setpasswordError(false)
+      setSpinner(false)
+      usernameRef.current.focus()
     } else if (!password) {
-      setUsernameError(false);
-      setpasswordError(true);
-      setSpinner(false);
-      passwordRef.current.focus();
+      setUsernameError(false)
+      setpasswordError(true)
+      setSpinner(false)
+      passwordRef.current.focus()
     } else {
-      setUsernameError(false);
-      setpasswordError(false);
-      setSpinner(true);
+      setUsernameError(false)
+      setpasswordError(false)
+      setSpinner(true)
       axios
         .post(`${env.host}/api/login`, {
           email: username,
           password: password,
         })
         .then((res) => {
-          if (res.data.message == "User does not exist") {
-            setUsernameExistError(true);
-            setUsernameError(true);
-            setPasswordIncrorrect(false);
-            setpasswordError(false);
-            setSpinner(false);
-            usernameRef.current.focus();
-          } else if (res.data.message == "The password is incorrect") {
-            setUsernameExistError(false);
-            setUsernameError(false);
-            setPasswordIncrorrect(true);
-            setpasswordError(true);
-            setSpinner(false);
-            passwordRef.current.focus();
+          if (res.data.message == 'User does not exist') {
+            setUsernameExistError(true)
+            setUsernameError(true)
+            setPasswordIncrorrect(false)
+            setpasswordError(false)
+            setSpinner(false)
+            usernameRef.current.focus()
+          } else if (res.data.message == 'The password is incorrect') {
+            setUsernameExistError(false)
+            setUsernameError(false)
+            setPasswordIncrorrect(true)
+            setpasswordError(true)
+            setSpinner(false)
+            passwordRef.current.focus()
           } else {
-            setUsernameExistError(false);
-            setUsernameError(false);
-            setPasswordIncrorrect(false);
-            setpasswordError(false);
-            setSpinner(false);
+            setUsernameExistError(false)
+            setUsernameError(false)
+            setPasswordIncrorrect(false)
+            setpasswordError(false)
+            setSpinner(false)
+            localStorage.setItem('user', JSON.stringify(res.data.user))
+            localStorage.setItem('logged', true)
+            window.location.reload()
           }
-          console.log(res.data);
-        });
+          console.log(res.data)
+        })
     }
-  };
+  }
 
   return (
     <>
@@ -110,11 +113,11 @@ export default function SigninContainer({ showSignin, handle }) {
                       type="text"
                       value={username}
                       onChange={(e) => {
-                        SetUsername(e.target.value);
+                        SetUsername(e.target.value)
                         if (username.length < 0) {
-                          setUsernameError(true);
+                          setUsernameError(true)
                         } else {
-                          setUsernameError(false);
+                          setUsernameError(false)
                         }
                       }}
                       ref={usernameRef}
@@ -124,8 +127,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       autoCorrect="off"
                       className={
                         usernameError
-                          ? "form__input error__input__container"
-                          : "form__input"
+                          ? 'form__input error__input__container'
+                          : 'form__input'
                       }
                       placeholder=" "
                     />
@@ -134,8 +137,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       class="form__label"
                       className={
                         usernameError
-                          ? "form__label error__label__container"
-                          : "form__label"
+                          ? 'form__label error__label__container'
+                          : 'form__label'
                       }
                     >
                       მომხმარებლის სახელი
@@ -144,14 +147,14 @@ export default function SigninContainer({ showSignin, handle }) {
                       <div
                         className={
                           usernameExistError
-                            ? "error__div__container big__div__container"
-                            : "error__div__container"
+                            ? 'error__div__container big__div__container'
+                            : 'error__div__container'
                         }
                       >
                         <span className="error__div__container__span">
                           {usernameExistError
-                            ? "მომხმარებელი არ არსებობს"
-                            : "სავალდებულო ველი"}
+                            ? 'მომხმარებელი არ არსებობს'
+                            : 'სავალდებულო ველი'}
                         </span>
                       </div>
                     )}
@@ -161,19 +164,19 @@ export default function SigninContainer({ showSignin, handle }) {
                       type="text"
                       value={password}
                       onChange={(a) => {
-                        Setpassword(a.target.value);
+                        Setpassword(a.target.value)
                         if (password.length < 0) {
-                          setpasswordError(true);
+                          setpasswordError(true)
                         } else {
-                          setpasswordError(false);
+                          setpasswordError(false)
                         }
                       }}
                       ref={passwordRef}
                       type="password"
                       className={
                         passwordError
-                          ? "form__input error__input__container"
-                          : "form__input"
+                          ? 'form__input error__input__container'
+                          : 'form__input'
                       }
                       autoCapitalize="off"
                       autoComplete="off"
@@ -184,8 +187,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       for=""
                       className={
                         passwordError
-                          ? "form__label error__label__container"
-                          : "form__label"
+                          ? 'form__label error__label__container'
+                          : 'form__label'
                       }
                     >
                       პაროლი
@@ -194,14 +197,14 @@ export default function SigninContainer({ showSignin, handle }) {
                       <div
                         className={
                           passwordIncorrect
-                            ? "error__div__container small__div__container"
-                            : "error__div__container"
+                            ? 'error__div__container small__div__container'
+                            : 'error__div__container'
                         }
                       >
                         <span className="error__div__container__span">
                           {passwordIncorrect
-                            ? "პაროლი არასწორია"
-                            : "სავალდებულო ველი"}
+                            ? 'პაროლი არასწორია'
+                            : 'სავალდებულო ველი'}
                         </span>
                       </div>
                     )}
@@ -214,12 +217,16 @@ export default function SigninContainer({ showSignin, handle }) {
                       onClick={() => identification()}
                       className="form__signinButton"
                     >
-                      {spinner || (<>
-                        <div>შესვლა</div>
-                      </>)}
-                      {spinner && (<>
-                        <div class="loader">Loading...</div>
-                      </>)}
+                      {spinner || (
+                        <>
+                          <div>შესვლა</div>
+                        </>
+                      )}
+                      {spinner && (
+                        <>
+                          <div class="loader">Loading...</div>
+                        </>
+                      )}
                     </button>
                     <Link to="/signup">
                       <button className="form__RegButton">რეგისტრაცია</button>
@@ -232,5 +239,5 @@ export default function SigninContainer({ showSignin, handle }) {
         </div>
       </div>
     </>
-  );
+  )
 }

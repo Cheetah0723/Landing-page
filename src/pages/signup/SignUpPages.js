@@ -123,6 +123,7 @@ function SignUpPages() {
       password: password,
       dateOfBirth: `${userDateDay}/${userDateMonth}/${userDateYear}`,
       gender: gender,
+      role: 'user'
     };
     axios.post(`${env.host}/api/signup`, data).then((res) => {
       localStorage.setItem("user", JSON.stringify(res.data.user));
