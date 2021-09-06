@@ -583,13 +583,7 @@ function SignUpPages() {
                       setUserDateYear(e.target.value);
                     }}
                   >
-                    <select
-                      ariaLabel="წელი"
-                      name="year"
-                      id="year"
-                      title="წელი"
-                      class="_9407 _5dba _9hk6 _8esg _9m5o"
-                    >
+                    <select ariaLabel="წელი" name="year" id="year" title="წელი">
                       {years.map((item) => {
                         return <option>{item}</option>;
                       })}
