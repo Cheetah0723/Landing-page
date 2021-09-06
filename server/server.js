@@ -1,43 +1,43 @@
-const express = require('express')
-const cors = require('cors')
-const mongoose = require('mongoose')
-const app = express()
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const app = express();
 
-var bodyParser = require('body-parser')
-app.use(bodyParser.json({ limit: '50mb' }))
+dotenv.config();
 
-app.use(cors())
+var bodyParser = require("body-parser");
+app.use(bodyParser.json({ limit: "50mb" }));
 
-app.use(express.json())
+app.use(cors());
 
-mongoose.connect(
-  'mongodb://giga:vivomini@rest-shard-00-00.nl9di.mongodb.net:27017,rest-shard-00-01.nl9di.mongodb.net:27017,rest-shard-00-02.nl9di.mongodb.net:27017/rest?ssl=true&replicaSet=atlas-if60ss-shard-0&authSource=admin&retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-)
+app.use(express.json());
 
-const Subscribers = require('./router/subscribers/SubscribersRouter')
-app.use('/api', Subscribers)
+mongoose.connect(process.env.DB_CONNECT, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-const Sponsors = require('./router/sponsors/SponsorsRouter')
-app.use('/api', Sponsors)
+const Subscribers = require("./router/subscribers/SubscribersRouter");
+app.use("/api", Subscribers);
 
-const Products = require('./router/products/ProductsRouter')
-app.use('/api', Products)
+const Sponsors = require("./router/sponsors/SponsorsRouter");
+app.use("/api", Sponsors);
 
-const Notifications = require('./router/notifications/NotificationsRouter')
-app.use('/api', Notifications)
+const Products = require("./router/products/ProductsRouter");
+app.use("/api", Products);
 
-const Signup = require('./router/Signup/SignupRouter')
-app.use('/api', Signup)
+const Notifications = require("./router/notifications/NotificationsRouter");
+app.use("/api", Notifications);
 
-const Login = require('./router/login/LoginRouter')
-app.use('/api', Login)
+const Signup = require("./router/Signup/SignupRouter");
+app.use("/api", Signup);
 
-const PORT = process.env.PORT || 3002
+const Login = require("./router/login/LoginRouter");
+app.use("/api", Login);
+
+const PORT = process.env.PORT || 3002;
 
 app.listen(PORT, () => {
-  console.log(`server listen at ${PORT}`)
-})
+  console.log(`server listen at ${PORT}`);
+});
