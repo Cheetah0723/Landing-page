@@ -344,7 +344,7 @@ function SignUpPages() {
                     )}
                     {emailInputError && (
                       <div className="error__div__container">
-                        <span className="error__div__container__span">
+                        <span className="error__div__container__span" style={{marginLeft:"5px",width:"200px"}}>
                           არასწორი ფორმატი
                         </span>
                       </div>
@@ -567,22 +567,10 @@ function SignUpPages() {
                     </select>
                   </div>
                 </div>
-                <div className="signup__block-2elements">
-                  <div className="form__div ">
-                    <input
-                      type="file"
-                      autoCapitalize="off"
-                      autoComplete="off"
-                      autoCorrect="off"
-                      className="form__input"
-                      placeholder=" "
-                    />
-                    <label for="" className="form__label">
-                      ავატარი
-                    </label>
-                  </div>
+                <div className="signup__block-1elements">
+                  
                   <div className="form__div">
-                    <div className="signup__boxforgender" onChange={(e) => { setGender(e.target.value)}}>
+                    <div className="signup__boxforgender" onChange={(e) => { setGender(e.target.value)}} style={{justifyContent:"space-between",display:"flex"}}>
                       <div>
                         <input
                           type="radio"
@@ -600,6 +588,15 @@ function SignUpPages() {
                           value="მდედრობითი"
                         />
                           <label for="css">მდედრობითი</label>
+                      </div>
+                      <div >
+                        <input
+                          type="radio"
+                          id="css"
+                          name="fav_language"
+                          value="მორგებული"
+                        />
+                          <label for="css">მორგებული</label>
                       </div>
                     </div>
                   </div>
