@@ -15,12 +15,10 @@ router.route("/login").post(async (req, res) => {
           user = result;
           res.json({
             user: {
-              firstName: result.firstName,
-              lastName: result.lastName,
+              userName: result.userName,
               email: result.email,
               dateOfBirth: result.dateOfBirth,
               avatar: result.avatar,
-              gender: result.gender,
               role: result.role
             },
             success: true,

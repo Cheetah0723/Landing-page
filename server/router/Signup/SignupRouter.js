@@ -3,8 +3,7 @@ const UserSchema = require("../../schema/user/user");
 const bcrypt = require("bcrypt");
 
 router.route("/signup").post(async (req, res) => {
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
+  const userName = req.body.userName;
   const email = req.body.email;
   const password = req.body.password;
   const dateOfBirth = req.body.dateOfBirth;
@@ -24,8 +23,7 @@ router.route("/signup").post(async (req, res) => {
       res.json({ message: "Email is registered", success: false });
     } else {
       const user = new UserSchema({
-        firstName: firstName,
-        lastName: lastName,
+        userName: userName,
         email: email,
         password: hashedPassword,
         dateOfBirth: dateOfBirth,

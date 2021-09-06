@@ -1,23 +1,8 @@
 const mongoose = require("mongoose");
 
-const DateSchema = mongoose.Schema({
-    day: {
-        type: String
-    },
-    month: {
-        type: String
-    },
-    year: {
-        type: String
-    }
-})
 
 const UserSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
+    userName: {
         type: String,
         required: true
     },
@@ -30,7 +15,9 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    dateOfBirth: [DateSchema],
+    dateOfBirth: {
+        type: String
+    },
     avatar: {
         type: String,
         default: "assets/images/default.png"
