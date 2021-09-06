@@ -30,17 +30,9 @@ router.route("/signup").post(async (req, res) => {
         avatar: avatar,
         gender: gender,
         role: role,
-      }).save();
-      const userFor = {
-        userName: userName,
-        email: email,
-        password: hashedPassword,
-        dateOfBirth: dateOfBirth,
-        avatar: avatar,
-        gender: gender,
-        role: role,
-      };
-      res.json({ user: userFor, success: true });
+      });
+      user.save();
+      res.json({ user: user, success: true });
     }
   });
 });

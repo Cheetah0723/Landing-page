@@ -117,11 +117,18 @@ function SignUpPages() {
 
   const sendInformation = () => {
     // if-ebi unda aq
+    const dateOfBirthArray = [
+      {
+        day: userDateDay,
+        month: userDateMonth,
+        year: userDateYear,
+      },
+    ];
     const data = {
       userName: `${firstName} ${lastName}`,
       email: email,
       password: password,
-      dateOfBirth: `${userDateDay}/${userDateMonth}/${userDateYear}`,
+      dateOfBirth: dateOfBirthArray,
       gender: gender,
       role: "user",
     };
@@ -139,11 +146,13 @@ function SignUpPages() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
   useEffect(() => {
     if (password == repeatPassword) {
       setPasswordMatch(false);
     }
   }, [password, repeatPassword]);
+
   useEffect(() => {
     if (email.length > 0) {
       if (
@@ -534,13 +543,15 @@ function SignUpPages() {
                   </div>
                 </div>
                 <div className="signup__block-3elements">
-                  <div
-                    className="form__div"
-                    onChange={(e) => {
-                      setUserDateDay(e.target.value);
-                    }}
-                  >
-                    <select name="day" size="1">
+                  <div className="form__div">
+                    <select
+                      name="day"
+                      size="1"
+                      value={userDateDay}
+                      onChange={(e) => {
+                        setUserDateDay(e.target.value);
+                      }}
+                    >
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -573,13 +584,15 @@ function SignUpPages() {
                       <option value="31">31</option>
                     </select>
                   </div>
-                  <div
-                    className="form__div"
-                    onChange={(e) => {
-                      setUserDateMonth(e.target.value);
-                    }}
-                  >
-                    <select name="month" size="1">
+                  <div className="form__div">
+                    <select
+                      name="month"
+                      size="1"
+                      value={userDateMonth}
+                      onChange={(e) => {
+                        setUserDateMonth(e.target.value);
+                      }}
+                    >
                       <option value="jan">იანვარი</option>
                       <option value="feb">თებერვალი</option>
                       <option value="mar">მარტი</option>
@@ -594,15 +607,19 @@ function SignUpPages() {
                       <option value="dec">დეკემბერი</option>
                     </select>
                   </div>
-                  <div
-                    className="form__div"
-                    onChange={(e) => {
-                      setUserDateYear(e.target.value);
-                    }}
-                  >
-                    <select ariaLabel="წელი" name="year" id="year" title="წელი">
+                  <div className="form__div">
+                    <select
+                      ariaLabel="წელი"
+                      name="year"
+                      id="year"
+                      title="წელი"
+                      value={userDateYear}
+                      onChange={(e) => {
+                        setUserDateYear(e.target.value);
+                      }}
+                    >
                       {years.map((item) => {
-                        return <option>{item}</option>;
+                        return <option value={item}>{item}</option>;
                       })}
                     </select>
                   </div>
