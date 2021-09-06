@@ -344,8 +344,8 @@ function SignUpPages() {
                     )}
                     {emailInputError && (
                       <div className="error__div__container">
-                        <span className="error__div__container__span" style={{width:"200px"}}>
-                          შიგ ხო არა გაქ?
+                        <span className="error__div__container__span">
+                          არასწორი ფორმატი
                         </span>
                       </div>
                     )}
