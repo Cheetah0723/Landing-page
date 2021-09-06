@@ -31,9 +31,9 @@ router.route("/signup").post(async (req, res) => {
         gender: gender,
         role: role
       }).save();
+      res.json({ success: true });
     }
   });
-  res.json({ success: true });
 });
 
 module.exports = router;
