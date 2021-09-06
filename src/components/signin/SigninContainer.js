@@ -12,18 +12,22 @@ export default function SigninContainer({ showSignin, handle }) {
   const [passwordIncorrect, setPasswordIncrorrect] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
+  const [spinner, setSpinner]= useState(false);
   const identification = () => {
     if (!username) {
       setUsernameError(true);
       setpasswordError(false);
+      setSpinner(false);
       usernameRef.current.focus();
     } else if (!password) {
       setUsernameError(false);
       setpasswordError(true);
+      setSpinner(false);
       passwordRef.current.focus();
     } else {
       setUsernameError(false);
       setpasswordError(false);
+      setSpinner(true);
       axios
         .post(`${env.host}/api/login`, {
           email: username,
@@ -35,18 +39,21 @@ export default function SigninContainer({ showSignin, handle }) {
             setUsernameError(true);
             setPasswordIncrorrect(false);
             setpasswordError(false);
+            setSpinner(false);
             usernameRef.current.focus();
           } else if (res.data.message == "The password is incorrect") {
             setUsernameExistError(false);
             setUsernameError(false);
             setPasswordIncrorrect(true);
             setpasswordError(true);
+            setSpinner(false);
             passwordRef.current.focus();
           } else {
             setUsernameExistError(false);
             setUsernameError(false);
             setPasswordIncrorrect(false);
             setpasswordError(false);
+            setSpinner(false);
           }
           console.log(res.data);
         });
@@ -207,7 +214,12 @@ export default function SigninContainer({ showSignin, handle }) {
                       onClick={() => identification()}
                       className="form__signinButton"
                     >
-                      შესვლა
+                      {spinner || (<>
+                        <div>შესვლა</div>
+                      </>)}
+                      {spinner && (<>
+                        <div class="loader">Loading...</div>
+                      </>)}
                     </button>
                     <Link to="/signup">
                       <button className="form__RegButton">რეგისტრაცია</button>
