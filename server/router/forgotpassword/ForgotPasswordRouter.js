@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const UserSchema = require("../../schema/user/user");
+const bcrypt = require("bcrypt");
 
 router.route("/forgotPassword").post(async (req, res) => {
   const email = req.body.email;
@@ -22,6 +23,14 @@ router.route("/forgotPassword").post(async (req, res) => {
 router.route("/forgotPassword/submit").post(async (req, res) => {
   const role = req.body.role;
   const email = req.body.email;
+  const password = req.body.password;
+
+  try {
+    var salt = await bcrypt.genSalt();
+    var hashedPassword = await bcrypt.hash(password, salt);
+  } catch (err) {
+    console.log(err);
+  }
 
   if (role == "date") {
     // date logic
@@ -29,11 +38,10 @@ router.route("/forgotPassword/submit").post(async (req, res) => {
       const day = req.body.day;
       const month = req.body.month;
       const year = req.body.year;
-      const password = req.body.password;
 
       result.dateOfBirth.map((item) => {
         if (item.day == day && item.month == month && item.year == year) {
-          console.log(password);
+          console.log(hashedPassword);
         } else {
           res.json({ message: "Information is invalid", success: false });
         }
