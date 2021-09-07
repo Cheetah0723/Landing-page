@@ -19,4 +19,14 @@ router.route("/forgotPassword").post(async (req, res) => {
   //   res.json("1");
 });
 
+router.route("/forgotPassword/submit").post(async (req, res) => {
+  const role = req.body.role;
+
+  if (role == "date") {
+    // date logic
+  } else {
+    // password logic
+  }
+});
+
 module.exports = router;
