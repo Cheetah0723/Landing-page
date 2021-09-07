@@ -19,9 +19,14 @@ function App() {
     axios.get(`${env.host}/api/products`).then((res) => {
       setProducts(res.data.data);
     }, []);
-    axios.get(`${env.host}/api/notifications/read`).then((res) => {
-      setNotification(res.data.data);
-    });
+    axios
+      .post(`${env.host}/api/notifications/read`, {
+        lang: localStorage.getItem("lang"),
+      })
+      .then((res) => {
+        setNotification(res.data.data);
+        console.log(res.data);
+      });
   }, []);
   useEffect(() => {
     if (localStorage.getItem("lang") == "en") {
@@ -49,7 +54,7 @@ function App() {
               exact
               component={ForgotPasswordPages}
             />
-            <Route path="/products/:id" exact component={ProductPages}/>
+            <Route path="/products/:id" exact component={ProductPages} />
           </Switch>
         </BrowserRouter>
       </ApplicationContext.Provider>
