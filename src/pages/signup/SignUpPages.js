@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import env from "./../../application/environment/env.json";
+import Swal from "sweetalert2";
 function SignUpPages() {
   const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
   const [firstName, setFirstName] = useState("");
@@ -133,9 +134,13 @@ function SignUpPages() {
       role: "user",
     };
     axios.post(`${env.host}/api/signup`, data).then((res) => {
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      localStorage.setItem("logged", true);
-      window.location.href = "/";
+      Swal.fire("გილოცავთ", "თქვენ წარმატებით დარეგისტრირდით", "success").then(
+        () => {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          localStorage.setItem("logged", true);
+          window.location.href = "/";
+        }
+      );
     });
   };
 
