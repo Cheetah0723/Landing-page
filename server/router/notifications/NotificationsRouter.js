@@ -21,11 +21,27 @@ router.route("/notifications/read").post(async (req, res) => {
 
   if (lang == "en") {
     Notifications.find().then((result) => {
-      res.json({ data: result[0].en });
+      let data = [];
+      result[0].en.map((item) => {
+        data.push({
+          title: item.title,
+          image: item.image,
+          description: item.description,
+        });
+      });
+      res.json({ data: data });
     });
   } else {
     Notifications.find().then((result) => {
-      res.json({ data: result[0].ge });
+      let data = [];
+      result[0].ge.map((item) => {
+        data.push({
+          title: item.title,
+          image: item.image,
+          description: item.description,
+        });
+      });
+      res.json({ data: data });
     });
   }
 });
