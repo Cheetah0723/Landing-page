@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export default function Home() {
+const {t}=useTranslation()
+
   return (
     <>
       <section className="home section" id="home">
@@ -16,7 +19,7 @@ export default function Home() {
             </div>
 
             <div className="home__footer">
-              <h3 className="home__title-description">მიმოხილვა</h3>
+              <h3 className="home__title-description">{t("OVERVIEW")}</h3>
               <p className="home__description">
                 მიიღე სიამოვნება მუსიკის მოსმენით უსადენო ყურსასმენების
                 საშუალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს ყურს

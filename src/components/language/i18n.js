@@ -9,6 +9,7 @@ const resources = {
       CASE: "Case",
       PRODUCTS: "Products",
       SIGNIN: "Sign in",
+      OVERVIEW: "Overview"
     },
   },
   ge: {
@@ -18,6 +19,7 @@ const resources = {
       CASE: "ქეისი",
       PRODUCTS: "პროდუქტები",
       SIGNIN: "შესვლა",
+      OVERVIEW: "მიმოხილვა"
     },
   },
 };
