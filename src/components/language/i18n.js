@@ -105,6 +105,7 @@ const resources = {
       SUBSCRIBE: "გამოწერა",
       BUY: "ყიდვა",
       PASSWORDINCORRECT: "პაროლი არასწორია",
+      USERNOTFOUND: "მომხმარებელი არ არსებობს",
     },
   },
 };

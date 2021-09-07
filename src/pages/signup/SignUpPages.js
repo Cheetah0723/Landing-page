@@ -1,126 +1,128 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import axios from 'axios'
-import env from './../../application/environment/env.json'
-import { useTranslation } from 'react-i18next'
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import env from "./../../application/environment/env.json";
+import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
+
 function SignUpPages() {
-  const { t } = useTranslation()
-  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1)
-  const [firstName, setFirstName] = useState('')
-  const [firstNameError, setFirstNameError] = useState(false)
-  const firstNameRef = useRef()
-  const [lastName, setLastName] = useState('')
-  const [lastNameError, setLastNameError] = useState(false)
-  const lastNameRef = useRef()
-  const [email, setEmail] = useState('')
-  const [emailError, setEmailError] = useState(false)
-  const emailRef = useRef()
-  const [password, setPassword] = useState('')
-  const [passwordError, setPasswordError] = useState(false)
-  const passwordRef = useRef()
-  const [repeatPassword, setRepeatPassword] = useState('')
-  const [repeatPasswordError, setRepeatPasswordError] = useState(false)
-  const [genderError, setGenderError] = useState(false)
-  const [passwordMatch, setPasswordMatch] = useState(false)
-  const [emailInputError, setEmailInputError] = useState(false)
-  const repeatPasswordRef = useRef()
-  const length = 2
-  const [gender, setGender] = useState('')
-  const [userDateDay, setUserDateDay] = useState('1')
-  const [userDateMonth, setUserDateMonth] = useState('jan')
-  const [userDateYear, setUserDateYear] = useState('2010')
+  const { t } = useTranslation();
+  const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
+  const [firstName, setFirstName] = useState("");
+  const [firstNameError, setFirstNameError] = useState(false);
+  const firstNameRef = useRef();
+  const [lastName, setLastName] = useState("");
+  const [lastNameError, setLastNameError] = useState(false);
+  const lastNameRef = useRef();
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const emailRef = useRef();
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+  const passwordRef = useRef();
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [repeatPasswordError, setRepeatPasswordError] = useState(false);
+  const [genderError, setGenderError] = useState(false);
+  const [passwordMatch, setPasswordMatch] = useState(false);
+  const [emailInputError, setEmailInputError] = useState(false);
+  const repeatPasswordRef = useRef();
+  const length = 2;
+  const [gender, setGender] = useState("");
+  const [userDateDay, setUserDateDay] = useState("1");
+  const [userDateMonth, setUserDateMonth] = useState("jan");
+  const [userDateYear, setUserDateYear] = useState("2010");
   function getAllYears() {
-    let year = []
+    let year = [];
     for (let i = 2021; i >= 1980; i--) {
-      year.push(i)
+      year.push(i);
     }
-    return year
+    return year;
   }
-  let years = getAllYears()
+  let years = getAllYears();
   const identificationFirstPage = () => {
     if (!firstName) {
-      setFirstNameError(true)
-      setRepeatPasswordError(false)
-      setEmailError(false)
-      setLastNameError(false)
-      setPasswordError(false)
-      setPasswordMatch(false)
-      setEmailInputError(false)
-      firstNameRef.current.focus()
+      setFirstNameError(true);
+      setRepeatPasswordError(false);
+      setEmailError(false);
+      setLastNameError(false);
+      setPasswordError(false);
+      setPasswordMatch(false);
+      setEmailInputError(false);
+      firstNameRef.current.focus();
     } else if (!lastName) {
-      setLastNameError(true)
-      setRepeatPasswordError(false)
-      setEmailError(false)
-      setFirstNameError(false)
-      setPasswordError(false)
-      setPasswordMatch(false)
-      setEmailInputError(false)
-      lastNameRef.current.focus()
+      setLastNameError(true);
+      setRepeatPasswordError(false);
+      setEmailError(false);
+      setFirstNameError(false);
+      setPasswordError(false);
+      setPasswordMatch(false);
+      setEmailInputError(false);
+      lastNameRef.current.focus();
     } else if (!email) {
-      setEmailError(true)
-      setFirstNameError(false)
-      setLastNameError(false)
-      setPasswordError(false)
-      setRepeatPasswordError(false)
-      setPasswordMatch(false)
-      setEmailInputError(false)
-      emailRef.current.focus()
+      setEmailError(true);
+      setFirstNameError(false);
+      setLastNameError(false);
+      setPasswordError(false);
+      setRepeatPasswordError(false);
+      setPasswordMatch(false);
+      setEmailInputError(false);
+      emailRef.current.focus();
     } else if (
       !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email,
+        email
       )
     ) {
-      setEmailInputError(true)
-      setPasswordMatch(false)
+      setEmailInputError(true);
+      setPasswordMatch(false);
     } else if (!password) {
-      setPasswordError(true)
-      setEmailError(false)
-      setFirstNameError(false)
-      setLastNameError(false)
-      setRepeatPasswordError(false)
-      setPasswordMatch(false)
-      setEmailInputError(false)
-      passwordRef.current.focus()
+      setPasswordError(true);
+      setEmailError(false);
+      setFirstNameError(false);
+      setLastNameError(false);
+      setRepeatPasswordError(false);
+      setPasswordMatch(false);
+      setEmailInputError(false);
+      passwordRef.current.focus();
     } else if (!repeatPassword) {
-      setRepeatPasswordError(true)
-      setEmailError(false)
-      setFirstNameError(false)
-      setLastNameError(false)
-      setPasswordError(false)
-      setPasswordMatch(false)
-      setEmailInputError(false)
-      repeatPasswordRef.current.focus()
+      setRepeatPasswordError(true);
+      setEmailError(false);
+      setFirstNameError(false);
+      setLastNameError(false);
+      setPasswordError(false);
+      setPasswordMatch(false);
+      setEmailInputError(false);
+      repeatPasswordRef.current.focus();
     } else if (password != repeatPassword) {
-      setPasswordMatch(true)
-      setRepeatPasswordError(false)
-      setEmailError(false)
-      setFirstNameError(false)
-      setLastNameError(false)
-      setPasswordError(false)
-      setEmailInputError(false)
+      setPasswordMatch(true);
+      setRepeatPasswordError(false);
+      setEmailError(false);
+      setFirstNameError(false);
+      setLastNameError(false);
+      setPasswordError(false);
+      setEmailInputError(false);
     } else {
-      setRepeatPasswordError(false)
-      setEmailError(false)
-      setFirstNameError(false)
-      setLastNameError(false)
-      setPasswordError(false)
-      setPasswordMatch(false)
-      setEmailInputError(false)
-      setShowSignUpNextPage(2)
+      setRepeatPasswordError(false);
+      setEmailError(false);
+      setFirstNameError(false);
+      setLastNameError(false);
+      setPasswordError(false);
+      setPasswordMatch(false);
+      setEmailInputError(false);
+      setShowSignUpNextPage(2);
     }
-  }
+  };
 
   const pageBack = () => {
     if (showSignUpNextPage != 1) {
-      setShowSignUpNextPage(1)
+      setShowSignUpNextPage(1);
     }
-  }
+  };
 
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
 
   const sendInformation = () => {
     if (gender.length <= 0) {
-      setGenderError(true)
+      setGenderError(true);
     } else {
       const dateOfBirthArray = [
         {
@@ -128,50 +130,56 @@ function SignUpPages() {
           month: userDateMonth,
           year: userDateYear,
         },
-      ]
+      ];
       const data = {
         userName: `${firstName} ${lastName}`,
         email: email,
         password: password,
         dateOfBirth: dateOfBirthArray,
         gender: gender,
-        role: 'user',
-      }
+        role: "user",
+      };
       axios.post(`${env.host}/api/signup`, data).then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.data.user))
-        localStorage.setItem('logged', true)
-        window.location.href = '/'
-      })
+        Swal.fire(
+          "გილოცავ!",
+          "თქვენ წარმატებით გაიარეთ რეგისტრაცია",
+          "success"
+        ).then(() => {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          localStorage.setItem("logged", true);
+          window.location.href = "/";
+        });
+      });
     }
-  }
+  };
 
   useEffect(() => {
-    document.body.style.overflowY = 'scroll'
-  })
+    document.body.style.overflowY = "scroll";
+  });
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (password == repeatPassword) {
-      setPasswordMatch(false)
+      setPasswordMatch(false);
     }
-  }, [password, repeatPassword])
+  }, [password, repeatPassword]);
 
   useEffect(() => {
     if (email.length > 0) {
       if (
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-          email,
+          email
         )
       ) {
-        setEmailInputError(false)
+        setEmailInputError(false);
       } else {
-        setEmailInputError(true)
+        setEmailInputError(true);
       }
     }
-  }, [email])
+  }, [email]);
   return (
     <>
       <div className="signup__centerbox">
@@ -186,17 +194,17 @@ function SignUpPages() {
                         <Link
                           to="/"
                           style={{
-                            textDecoration: 'none',
-                            margin: '0',
-                            color: 'hsl(var(--hue-color), 4%, 75%)',
-                            height: '16px',
+                            textDecoration: "none",
+                            margin: "0",
+                            color: "hsl(var(--hue-color), 4%, 75%)",
+                            height: "16px",
                           }}
                         >
                           <svg
                             width="16px"
                             height="16px"
                             viewBox="0 0 48 48"
-                            style={{ margin: '0 10px 0 0', cursor: 'pointer' }}
+                            style={{ margin: "0 10px 0 0", cursor: "pointer" }}
                             version="1.1"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -229,7 +237,7 @@ function SignUpPages() {
                         width="16px"
                         height="16px"
                         viewBox="0 0 48 48"
-                        style={{ margin: '0 10px 0 0', cursor: 'pointer' }}
+                        style={{ margin: "0 10px 0 0", cursor: "pointer" }}
                         version="1.1"
                         onClick={() => pageBack()}
                         xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +265,7 @@ function SignUpPages() {
                         </g>
                       </svg>
                     )}
-                    {t('REGTITLE')} ({showSignUpNextPage}/{length})
+                    {t("REGTITLE")} ({showSignUpNextPage}/{length})
                   </div>
                 </div>
                 <div className="signup__block-2elements">
@@ -270,17 +278,17 @@ function SignUpPages() {
                       ref={firstNameRef}
                       className={
                         firstNameError
-                          ? 'form__input error__input__container'
-                          : 'form__input'
+                          ? "form__input error__input__container"
+                          : "form__input"
                       }
                       placeholder=" "
                       value={firstName}
                       onChange={(e) => {
-                        setFirstName(e.target.value)
+                        setFirstName(e.target.value);
                         if (firstName.length < 0) {
-                          setFirstNameError(true)
+                          setFirstNameError(true);
                         } else {
-                          setFirstNameError(false)
+                          setFirstNameError(false);
                         }
                       }}
                     />
@@ -288,16 +296,16 @@ function SignUpPages() {
                       for=""
                       className={
                         firstNameError
-                          ? 'form__label error__label__container'
-                          : 'form__label'
+                          ? "form__label error__label__container"
+                          : "form__label"
                       }
                     >
-                      {t('REGFIRSTNAME')}
+                      {t("REGFIRSTNAME")}
                     </label>
                     {firstNameError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          {t('REQUIREDFILL')}
+                          {t("REQUIREDFILL")}
                         </span>
                       </div>
                     )}
@@ -310,18 +318,18 @@ function SignUpPages() {
                       autoCorrect="off"
                       className={
                         lastNameError
-                          ? 'form__input error__input__container'
-                          : 'form__input'
+                          ? "form__input error__input__container"
+                          : "form__input"
                       }
                       ref={lastNameRef}
                       placeholder=" "
                       value={lastName}
                       onChange={(e) => {
-                        setLastName(e.target.value)
+                        setLastName(e.target.value);
                         if (lastName.length < 0) {
-                          setLastNameError(true)
+                          setLastNameError(true);
                         } else {
-                          setLastNameError(false)
+                          setLastNameError(false);
                         }
                       }}
                     />
@@ -329,16 +337,16 @@ function SignUpPages() {
                       for=""
                       className={
                         lastNameError
-                          ? 'form__label error__label__container'
-                          : 'form__label'
+                          ? "form__label error__label__container"
+                          : "form__label"
                       }
                     >
-                      {t('REGLASTNAME')}
+                      {t("REGLASTNAME")}
                     </label>
                     {lastNameError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          {t('REQUIREDFILL')}
+                          {t("REQUIREDFILL")}
                         </span>
                       </div>
                     )}
@@ -353,19 +361,19 @@ function SignUpPages() {
                       autoCorrect="off"
                       className={
                         emailError || emailInputError
-                          ? 'form__input error__input__container'
-                          : 'form__input'
+                          ? "form__input error__input__container"
+                          : "form__input"
                       }
                       ref={emailRef}
                       placeholder=" "
                       value={email}
                       onChange={(e) => {
-                        setEmail(e.target.value)
+                        setEmail(e.target.value);
                         if (email.length < 0) {
-                          setEmailError(true)
+                          setEmailError(true);
                         } else {
-                          setEmailError(false)
-                          setEmailInputError(false)
+                          setEmailError(false);
+                          setEmailInputError(false);
                         }
                       }}
                     />
@@ -373,16 +381,16 @@ function SignUpPages() {
                       for=""
                       className={
                         emailError || emailInputError
-                          ? 'form__label error__label__container'
-                          : 'form__label'
+                          ? "form__label error__label__container"
+                          : "form__label"
                       }
                     >
-                      {t('REGEMAIL')}
+                      {t("REGEMAIL")}
                     </label>
                     {emailError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          {t('REQUIREDFILL')}
+                          {t("REQUIREDFILL")}
                         </span>
                       </div>
                     )}
@@ -390,7 +398,7 @@ function SignUpPages() {
                       <div className="error__div__container">
                         <span
                           className="error__div__container__span"
-                          style={{ marginLeft: '5px', width: '200px' }}
+                          style={{ marginLeft: "5px", width: "200px" }}
                         >
                           არასწორი ფორმატი
                         </span>
@@ -404,11 +412,11 @@ function SignUpPages() {
                       type="text"
                       value={password}
                       onChange={(e) => {
-                        setPassword(e.target.value)
+                        setPassword(e.target.value);
                         if (password.length < 0) {
-                          setPasswordError(true)
+                          setPasswordError(true);
                         } else {
-                          setPasswordError(false)
+                          setPasswordError(false);
                         }
                       }}
                       type="password"
@@ -417,8 +425,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       className={
                         passwordError || passwordMatch
-                          ? 'form__input error__input__container'
-                          : 'form__input'
+                          ? "form__input error__input__container"
+                          : "form__input"
                       }
                       placeholder=" "
                       ref={passwordRef}
@@ -427,16 +435,16 @@ function SignUpPages() {
                       for=""
                       className={
                         passwordError || passwordMatch
-                          ? 'form__label error__label__container'
-                          : 'form__label'
+                          ? "form__label error__label__container"
+                          : "form__label"
                       }
                     >
-                      {t('REGPASSWORD')}
+                      {t("REGPASSWORD")}
                     </label>
                     {passwordError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          {t('REQUIREDFILL')}
+                          {t("REQUIREDFILL")}
                         </span>
                       </div>
                     )}
@@ -453,11 +461,11 @@ function SignUpPages() {
                       type="text"
                       value={repeatPassword}
                       onChange={(e) => {
-                        setRepeatPassword(e.target.value)
+                        setRepeatPassword(e.target.value);
                         if (repeatPassword.length < 0) {
-                          setRepeatPassword(true)
+                          setRepeatPassword(true);
                         } else {
-                          setRepeatPassword(false)
+                          setRepeatPassword(false);
                         }
                       }}
                       type="password"
@@ -466,8 +474,8 @@ function SignUpPages() {
                       autoCorrect="off"
                       className={
                         repeatPasswordError || passwordMatch
-                          ? 'form__input error__input__container'
-                          : 'form__input'
+                          ? "form__input error__input__container"
+                          : "form__input"
                       }
                       placeholder=" "
                       ref={repeatPasswordRef}
@@ -478,16 +486,16 @@ function SignUpPages() {
                       for=""
                       className={
                         repeatPasswordError || passwordMatch
-                          ? 'form__label error__label__container'
-                          : 'form__label'
+                          ? "form__label error__label__container"
+                          : "form__label"
                       }
                     >
-                      {t('REGREPETEPASSWORD')}
+                      {t("REGREPETEPASSWORD")}
                     </label>
                     {repeatPasswordError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          {t('REQUIREDFILL')}
+                          {t("REQUIREDFILL")}
                         </span>
                       </div>
                     )}
@@ -518,7 +526,7 @@ function SignUpPages() {
                       width="16px"
                       height="16px"
                       viewBox="0 0 48 48"
-                      style={{ margin: '0 10px 0 0', cursor: 'pointer' }}
+                      style={{ margin: "0 10px 0 0", cursor: "pointer" }}
                       version="1.1"
                       onClick={() => pageBack()}
                       xmlns="http://www.w3.org/2000/svg"
@@ -551,7 +559,7 @@ function SignUpPages() {
                 <div className="signUp__secondPageMargin">
                   <div
                     className="signup__block-3elements"
-                    style={{ marginTop: '35px' }}
+                    style={{ marginTop: "35px" }}
                   >
                     <div className="form__div">
                       <select
@@ -559,7 +567,7 @@ function SignUpPages() {
                         size="1"
                         value={userDateDay}
                         onChange={(e) => {
-                          setUserDateDay(e.target.value)
+                          setUserDateDay(e.target.value);
                         }}
                       >
                         <option value="1">1</option>
@@ -600,7 +608,7 @@ function SignUpPages() {
                         size="1"
                         value={userDateMonth}
                         onChange={(e) => {
-                          setUserDateMonth(e.target.value)
+                          setUserDateMonth(e.target.value);
                         }}
                       >
                         <option value="jan">იანვარი</option>
@@ -625,34 +633,34 @@ function SignUpPages() {
                         title="წელი"
                         value="2021"
                         onChange={(e) => {
-                          setUserDateYear(e.target.value)
+                          setUserDateYear(e.target.value);
                         }}
                       >
                         {years.map((item) => {
-                          return <option value={item}>{item}</option>
+                          return <option value={item}>{item}</option>;
                         })}
                       </select>
                     </div>
                   </div>
                   <div
                     className="signup__block-1elements"
-                    style={{ marginTop: '35px' }}
+                    style={{ marginTop: "35px" }}
                   >
                     <div className="form__div">
                       <div
                         className={
                           genderError
-                            ? 'signup__boxforgenderRed'
-                            : 'signup__boxforgender'
+                            ? "signup__boxforgenderRed"
+                            : "signup__boxforgender"
                         }
                         onChange={(e) => {
-                          setGender(e.target.value)
-                          setGenderError(false)
+                          setGender(e.target.value);
+                          setGenderError(false);
                         }}
                         style={{
-                          justifyContent: 'space-between',
-                          display: 'flex',
-                          textAlign: 'center',
+                          justifyContent: "space-between",
+                          display: "flex",
+                          textAlign: "center",
                         }}
                       >
                         <div>
@@ -662,7 +670,7 @@ function SignUpPages() {
                             name="fav_language"
                             value="მამრობითი"
                           />
-                            <label for="male">მამრობითი</label> {' '}
+                            <label for="male">მამრობითი</label> {" "}
                         </div>
                         <div>
                           <input
@@ -686,7 +694,7 @@ function SignUpPages() {
                           <div className="error__div__container">
                             <span
                               className="error__div__container__span"
-                              style={{ marginLeft: '15px' }}
+                              style={{ marginLeft: "15px" }}
                             >
                               მიუთითეთ სქესი
                             </span>
@@ -698,7 +706,7 @@ function SignUpPages() {
                 </div>
                 <div
                   className="form__buttonContainer signup__button-box"
-                  style={{ marginTop: '35px' }}
+                  style={{ marginTop: "35px" }}
                 >
                   <button
                     className="form__signinButton signup__button1"
@@ -706,17 +714,17 @@ function SignUpPages() {
                   >
                     რეგისტრაციის დასრულება
                   </button>
-                </div>{' '}
+                </div>{" "}
                 <div className="form__buttonContainer signup__button-box">
                   <button className="form__RegButton signup__button2 btn__none__hov"></button>
-                </div>{' '}
+                </div>{" "}
               </>
             )}
           </form>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default SignUpPages
+export default SignUpPages;
