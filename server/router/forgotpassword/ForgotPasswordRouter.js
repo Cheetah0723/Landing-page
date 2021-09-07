@@ -30,8 +30,10 @@ router.route("/forgotPassword/submit").post(async (req, res) => {
       const month = req.body.month;
       const year = req.body.year;
       result.dateOfBirth.map((item) => {
-        if (item.day == day) {
-          console.log("day");
+        if (item.day == day && item.month == month && item.year == year) {
+          console.log(1);
+        } else {
+          res.json({ message: "Information is invalid", success: false });
         }
         console.log(item);
       });
