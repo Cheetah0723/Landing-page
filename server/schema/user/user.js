@@ -43,10 +43,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  resetLink: {
-    type: String,
-    default: "",
-  },
 });
 
 const User = new mongoose.model("User", UserSchema);
