@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import env from './../../application/environment/env.json'
+import { useTranslation } from 'react-i18next'
 function SignUpPages() {
+  const { t } = useTranslation()
   const [showSignUpNextPage, setShowSignUpNextPage] = useState(1)
   const [firstName, setFirstName] = useState('')
   const [firstNameError, setFirstNameError] = useState(false)
@@ -255,7 +257,7 @@ function SignUpPages() {
                         </g>
                       </svg>
                     )}
-                    პირადი ინფორმაცია ({showSignUpNextPage}/{length})
+                    {t('REGTITLE')} ({showSignUpNextPage}/{length})
                   </div>
                 </div>
                 <div className="signup__block-2elements">
@@ -290,12 +292,12 @@ function SignUpPages() {
                           : 'form__label'
                       }
                     >
-                      სახელი
+                      {t('REGFIRSTNAME')}
                     </label>
                     {firstNameError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          სავალდებულო ველი
+                          {t('REQUIREDFILL')}
                         </span>
                       </div>
                     )}
@@ -331,12 +333,12 @@ function SignUpPages() {
                           : 'form__label'
                       }
                     >
-                      გვარი
+                      {t('REGLASTNAME')}
                     </label>
                     {lastNameError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          სავალდებულო ველი
+                          {t('REQUIREDFILL')}
                         </span>
                       </div>
                     )}
@@ -375,12 +377,12 @@ function SignUpPages() {
                           : 'form__label'
                       }
                     >
-                      ელ-ფოსტა
+                      {t('REGEMAIL')}
                     </label>
                     {emailError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          სავალდებულო ველი
+                          {t('REQUIREDFILL')}
                         </span>
                       </div>
                     )}
@@ -429,12 +431,12 @@ function SignUpPages() {
                           : 'form__label'
                       }
                     >
-                      პაროლი
+                      {t('REGPASSWORD')}
                     </label>
                     {passwordError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          სავალდებულო ველი
+                          {t('REQUIREDFILL')}
                         </span>
                       </div>
                     )}
@@ -480,12 +482,12 @@ function SignUpPages() {
                           : 'form__label'
                       }
                     >
-                      გაიმეორეთ პაროლი
+                      {t('REGREPETEPASSWORD')}
                     </label>
                     {repeatPasswordError && (
                       <div className="error__div__container">
                         <span className="error__div__container__span">
-                          სავალდებულო ველი
+                          {t('REQUIREDFILL')}
                         </span>
                       </div>
                     )}

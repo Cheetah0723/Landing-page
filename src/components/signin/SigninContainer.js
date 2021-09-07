@@ -101,7 +101,9 @@ export default function SigninContainer({ showSignin, handle }) {
         </div>
         <div className="signin__head">
           <div className="signin__head-header">
-            <div className="signin__head-header-wrapper">{t('USEREMAIL')}</div>
+            <div className="signin__head-header-wrapper">
+              {t('SIGNINSYSTEM')}
+            </div>
           </div>
           <div className="signin__head-content">
             <div className="signin__head-content-wrapper">
@@ -143,7 +145,7 @@ export default function SigninContainer({ showSignin, handle }) {
                           : 'form__label'
                       }
                     >
-                      მომხმარებლის სახელი
+                      {t('USEREMAIL')}
                     </label>
                     {usernameError && (
                       <div
@@ -193,7 +195,7 @@ export default function SigninContainer({ showSignin, handle }) {
                           : 'form__label'
                       }
                     >
-                      პაროლი
+                      {t('PASSWORD')}
                     </label>
                     {passwordError && (
                       <div
@@ -212,7 +214,7 @@ export default function SigninContainer({ showSignin, handle }) {
                     )}
                   </div>
                   <Link className="form__resetDATA">
-                    დაგავიწყდა მონაცემები?
+                    {t('PASSWORDRECOVER')}
                   </Link>
                   <div className="form__buttonContainer">
                     <button
@@ -221,7 +223,7 @@ export default function SigninContainer({ showSignin, handle }) {
                     >
                       {spinner || (
                         <>
-                          <div>შესვლა</div>
+                          <div>{t('LOGIN')}</div>
                         </>
                       )}
                       {spinner && (
@@ -231,7 +233,9 @@ export default function SigninContainer({ showSignin, handle }) {
                       )}
                     </button>
                     <Link to="/signup">
-                      <button className="form__RegButton">რეგისტრაცია</button>
+                      <button className="form__RegButton">
+                        {t('REGISTER')}
+                      </button>
                     </Link>
                   </div>
                 </div>
