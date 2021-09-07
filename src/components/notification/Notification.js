@@ -8,12 +8,13 @@ export default function Notification() {
       <section className="discount section">
         {notification.slice(0, 1).map((item) => {
           const { title, image, description } = item;
+          const newTitle = title.replace("\\n", "\n");
           return (
             <>
               <div className="discount__container container grid">
                 <div className="discount__animate">
                   <h2 className="discount__title">
-                    <pre style={{ fontFamily: "MarkGEO" }}>{title}</pre>
+                    <pre style={{ fontFamily: "MarkGEO" }}>{newTitle}</pre>
                   </h2>
                   <p className="discount__description">{description}</p>
                   <a href="#" className="button button--flex">
