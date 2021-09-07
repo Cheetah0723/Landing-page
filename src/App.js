@@ -6,6 +6,7 @@ import { ApplicationContext } from "./context/application/ApplicationContext";
 import env from "./application/environment/env.json";
 import SignUpPages from "./pages/signup/SignUpPages";
 import ForgotPasswordPages from "./pages/forgotpassword/ForgotPasswordPages";
+import ProductPages from "./pages/productpages/ProductPages";
 
 function App() {
   const [application, setApplication] = React.useState([]);
@@ -48,6 +49,7 @@ function App() {
               exact
               component={ForgotPasswordPages}
             />
+            <Route path="/products/:id" exact component={ProductPages}/>
           </Switch>
         </BrowserRouter>
       </ApplicationContext.Provider>
