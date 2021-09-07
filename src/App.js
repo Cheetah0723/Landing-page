@@ -12,10 +12,10 @@ function App() {
   React.useEffect(() => {
     axios.post(`${env.host}/api/sponsors`).then((res) => {
       setApplication(res.data.data);
-    });
+    }, []);
     axios.get(`${env.host}/api/products`).then((res) => {
       setProducts(res.data.data);
-    });
+    }, []);
     axios.get(`${env.host}/api/notifications/read`).then((res) => {
       setNotification(res.data.data);
     });
@@ -28,7 +28,14 @@ function App() {
   return (
     <>
       <ApplicationContext.Provider
-        value={{ application, setApplication, notification, setNotification }}
+        value={{
+          application,
+          setApplication,
+          notification,
+          setNotification,
+          products,
+          setProducts,
+        }}
       >
         <BrowserRouter>
           <Switch>

@@ -70,7 +70,7 @@ sr.reveal(`.home__footer`, { delay: 700 });
 sr.reveal(`.home__img`, { delay: 900, origin: "top" });
 
 sr.reveal(
-  `.sponsor, .products__card, .footer__logo, .footer__content, .footer__copy`,
+  `.sponsor, .products, .footer__logo, .footer__content, .footer__copy`,
   { origin: "top", interval: 100 }
 );
 sr.reveal(`.specs__data, .discount`, {
