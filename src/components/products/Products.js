@@ -8,7 +8,6 @@ export default function Products() {
     React.useContext(ApplicationContext);
   return (
     <>
-      {console.log(products)}
       <section className="products section" id="products">
         <h2 className="section__title section__title-gradient products__line">
           {t("PRODUCTSTITLE")}

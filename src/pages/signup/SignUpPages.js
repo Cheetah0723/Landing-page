@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import axios from "axios";
 import env from "./../../application/environment/env.json";
 import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
+import { ApplicationContext } from "../.././context/application/ApplicationContext";
 
 function SignUpPages() {
   const { t } = useTranslation();
+  const history = useHistory();
   const [showSignUpNextPage, setShowSignUpNextPage] = useState(1);
   const [firstName, setFirstName] = useState("");
   const [firstNameError, setFirstNameError] = useState(false);
@@ -31,6 +33,7 @@ function SignUpPages() {
   const [userDateDay, setUserDateDay] = useState("1");
   const [userDateMonth, setUserDateMonth] = useState("jan");
   const [userDateYear, setUserDateYear] = useState("2010");
+  const { showSignin, setShowSignin } = React.useContext(ApplicationContext);
   function getAllYears() {
     let year = [];
     for (let i = 2021; i >= 1980; i--) {
@@ -145,11 +148,8 @@ function SignUpPages() {
           "თქვენ წარმატებით გაიარეთ რეგისტრაცია",
           "success"
         ).then(() => {
-          localStorage.setItem("user", JSON.stringify(res.data.user));
-          localStorage.setItem("logged", true);
-          localStorage.setItem("header", res.data.access_token);
-          console.log(res.data);
-          window.location.href = "/";
+          history.push("/");
+          setShowSignin(true);
         });
       });
     }

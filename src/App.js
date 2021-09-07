@@ -13,6 +13,7 @@ function App() {
   const [notification, setNotification] = React.useState([]);
   const [products, setProducts] = React.useState([]);
   const [showSignin, setShowSignin] = React.useState(false);
+  const header = localStorage.getItem("header");
   React.useEffect(() => {
     axios.post(`${env.host}/api/sponsors`).then((res) => {
       setApplication(res.data.data);
@@ -26,6 +27,21 @@ function App() {
       })
       .then((res) => {
         setNotification(res.data.data);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .post(
+        `${env.host}/api/checkifuser`,
+        {},
+        { headers: { Authorization: `Bearer ${header}` } }
+      )
+      .then((res) => {
+        if (res.data.success) {
+          console.log(1);
+        } else {
+          console.log(res.data);
+        }
       });
   }, []);
   useEffect(() => {

@@ -64,10 +64,10 @@ export default function SigninContainer({ showSignin, handle }) {
             ).then(() => {
               localStorage.setItem("user", JSON.stringify(res.data.user));
               localStorage.setItem("logged", true);
+              localStorage.setItem("header", res.data.access_token);
               window.location.href = "/";
             });
           }
-          console.log(res.data);
         });
     }
   };
