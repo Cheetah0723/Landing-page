@@ -804,7 +804,18 @@
   display: flex !important;
   justify-content: space-around;
 }
+.signup__boxforgenderRed {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid red;
 
+  border-radius: 5px;
+  padding: 20px;
+  display: flex !important;
+  justify-content: space-around;
+}
+.signUp__secondPageMargin {
+}
 .error__div__container {
   position: absolute;
   top: -35px;
