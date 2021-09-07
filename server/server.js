@@ -36,6 +36,9 @@ app.use("/api", Signup);
 const Login = require("./router/login/LoginRouter");
 app.use("/api", Login);
 
+const ForgetPassword = require("./router/forgetPassword/ForgetPasswordRouter");
+app.use("/api", ForgetPassword);
+
 const PORT = process.env.PORT || 3002;
 
 app.listen(PORT, () => {
