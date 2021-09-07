@@ -1,8 +1,8 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
-const {t}=useTranslation()
+  const { t } = useTranslation();
 
   return (
     <>
@@ -20,11 +20,11 @@ const {t}=useTranslation()
 
             <div className="home__footer">
               <h3 className="home__title-description">{t("OVERVIEW")}</h3>
-              <p className="home__description">{t("OVERVIEWTEXT")}
-              </p>
+              <p className="home__description">{t("OVERVIEWTEXT")}</p>
               <a href="#" className="button button--flex">
                 <span className="button--flex">
-                  <i className="ri-shopping-bag-line button__icon button--flex">{t("ADDTOBAG")}</i>
+                  <i className="ri-shopping-bag-line button__icon"></i>
+                  {t("ADDTOBAG")}
                 </span>
                 <span className="home__price">$299</span>
               </a>
@@ -33,5 +33,5 @@ const {t}=useTranslation()
         </div>
       </section>
     </>
-  )
+  );
 }
