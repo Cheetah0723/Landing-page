@@ -1,9 +1,10 @@
 import React from "react";
+import ForgotPassword from "../../components/forgotpassword/ForgotPassword";
 
 export default function ForgotPasswordPages() {
   return (
     <>
-      <p>Hello</p>
+      <ForgotPassword />
     </>
   );
 }
