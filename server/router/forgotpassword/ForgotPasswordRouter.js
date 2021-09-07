@@ -17,7 +17,6 @@ router.route("/forgotPassword").post(async (req, res) => {
       }
     }
   });
-  //   res.json("1");
 });
 
 router.route("/forgotPassword/submit").post(async (req, res) => {
