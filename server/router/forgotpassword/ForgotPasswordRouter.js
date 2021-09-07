@@ -21,9 +21,21 @@ router.route("/forgotPassword").post(async (req, res) => {
 
 router.route("/forgotPassword/submit").post(async (req, res) => {
   const role = req.body.role;
+  const email = req.body.email;
 
   if (role == "date") {
     // date logic
+    UserSchema.findOne({ email: email }).then((result) => {
+      const day = req.body.day;
+      const month = req.body.month;
+      const year = req.body.year;
+      result.dateOfBirth.map((item) => {
+        if (item.day == day) {
+          console.log("day");
+        }
+        console.log(item);
+      });
+    });
   } else {
     // password logic
   }
