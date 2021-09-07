@@ -24,7 +24,7 @@ const {t}=useTranslation()
               </p>
               <a href="#" className="button button--flex">
                 <span className="button--flex">
-                  <i className="ri-shopping-bag-line button__icon">{t("ADDTOBAG")}</i>
+                  <i className="ri-shopping-bag-line button__icon button--flex">{t("ADDTOBAG")}</i>
                 </span>
                 <span className="home__price">$299</span>
               </a>
