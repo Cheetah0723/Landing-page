@@ -2,8 +2,10 @@ import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import env from './../../application/environment/env.json'
 import axios from 'axios'
+import { useTranslation } from 'react-i18next'
 
 export default function SigninContainer({ showSignin, handle }) {
+  const { t } = useTranslation()
   const [username, SetUsername] = useState('')
   const [usernameError, setUsernameError] = useState(false)
   const [usernameExistError, setUsernameExistError] = useState(false)
@@ -99,7 +101,7 @@ export default function SigninContainer({ showSignin, handle }) {
         </div>
         <div className="signin__head">
           <div className="signin__head-header">
-            <div className="signin__head-header-wrapper">სისტემაში შესვლა</div>
+            <div className="signin__head-header-wrapper">{t('USEREMAIL')}</div>
           </div>
           <div className="signin__head-content">
             <div className="signin__head-content-wrapper">
