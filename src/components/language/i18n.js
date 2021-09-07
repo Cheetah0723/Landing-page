@@ -50,6 +50,7 @@ const resources = {
       UPDATES: "Updates",
       PROVIDES: "Provides",
       EMAILINPUT: "E-mail",
+      SUBSCRIBE: "Subscribe",
     },
   },
   ge: {
@@ -99,6 +100,7 @@ const resources = {
       UPDATES: "განახლებები",
       PROVIDES: "პროგრამული უზრუნველოფა",
       EMAILINPUT: "ელ.ფოსტა",
+      SUBSCRIBE: "გამოწერა",
     },
   },
 };
