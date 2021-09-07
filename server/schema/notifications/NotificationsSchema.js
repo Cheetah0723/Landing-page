@@ -1,16 +1,21 @@
 const mongoose = require("mongoose");
 
+const LanguageSchema = mongoose.Schema({
+  title: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
+});
+
 const NotificationsSchema = mongoose.Schema(
   {
-    title: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    image: {
-      type: String,
-    },
+    ge: [LanguageSchema],
+    en: [LanguageSchema],
   },
   {
     versionKey: false,
