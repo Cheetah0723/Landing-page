@@ -7,8 +7,10 @@ import Alert from "@material-ui/lab/Alert";
 import axios from "axios";
 import env from "../../application/environment/env.json";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const [input, setInput] = React.useState("");
   const [inputError, setInputError] = React.useState(false);
   const [inputErrorMessage, setInputErrorMessage] = React.useState("");
@@ -103,7 +105,7 @@ export default function Footer() {
           </a>
 
           <div class="footer__content">
-            <h3 class="footer__title">პროდუქტები</h3>
+            <h3 class="footer__title">{t("PRODUCTS")}</h3>
 
             <ul class="footer__links">
               {FooterSection[0].products.map((item) => {
@@ -112,7 +114,7 @@ export default function Footer() {
                   <>
                     <li>
                       <a href={route} class="footer__link">
-                        {name}
+                        {t(name)}
                       </a>
                     </li>
                   </>
@@ -122,7 +124,7 @@ export default function Footer() {
           </div>
 
           <div class="footer__content">
-            <h3 class="footer__title">მხარდაჭერა</h3>
+            <h3 class="footer__title">{t("SUPPORT")}</h3>
 
             <ul class="footer__links">
               {FooterSection[1].support.map((item) => {
@@ -131,7 +133,7 @@ export default function Footer() {
                   <>
                     <li>
                       <a href={route} class="footer__link">
-                        {name}
+                        {t(name)}
                       </a>
                     </li>
                   </>
@@ -151,7 +153,7 @@ export default function Footer() {
             >
               <input
                 type="text"
-                placeholder="ელ.ფოსტა"
+                placeholder={`${t("EMAILINPUT")}`}
                 class="footer__input"
                 ref={inputRef}
                 value={input}
@@ -161,7 +163,7 @@ export default function Footer() {
                 class="button button--flex"
                 onClick={() => identification()}
               >
-                <i class="ri-send-plane-line button__icon"></i> გამოწერა
+                <i class="ri-send-plane-line button__icon"></i> {t("SUBSCRIBE")}
               </button>
             </form>
 

@@ -2,19 +2,19 @@ export const FooterSection = [
   {
     products: [
       {
-        name: "ყურსასმენები",
+        name: "HEADPHONES",
         route: "#",
       },
       {
-        name: "უსადენო ყურსასმენები",
+        name: "EARPHONES",
         route: "#",
       },
       {
-        name: "ჰედსეტები",
+        name: "HEADSET",
         route: "#",
       },
       {
-        name: "აქსესუარები",
+        name: "ACCESSORIES",
         route: "#",
       },
     ],
@@ -22,19 +22,19 @@ export const FooterSection = [
   {
     support: [
       {
-        name: "პროდუქტზე დახმარება",
+        name: "PRODUCTHELP",
         route: "#",
       },
       {
-        name: "რეგისტრაცია",
+        name: "REGISTERFOOTER",
         route: "#",
       },
       {
-        name: "განახლებები",
+        name: "UPDATES",
         route: "#",
       },
       {
-        name: "პროგრამული უზრუნველოფა",
+        name: "PROVIDES",
         route: "#",
       },
     ],
