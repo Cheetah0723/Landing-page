@@ -25,7 +25,6 @@ function App() {
       })
       .then((res) => {
         setNotification(res.data.data);
-        console.log(res.data);
       });
   }, []);
   useEffect(() => {

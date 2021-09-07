@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import env from "./../../application/environment/env.json";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 export default function SigninContainer({ showSignin, handle }) {
   const { t } = useTranslation();
@@ -56,9 +57,15 @@ export default function SigninContainer({ showSignin, handle }) {
             setPasswordIncrorrect(false);
             setpasswordError(false);
             setSpinner(false);
-            localStorage.setItem("user", JSON.stringify(res.data.user));
-            localStorage.setItem("logged", true);
-            window.location.reload();
+            Swal.fire(
+              "გილოცავ!",
+              "თქვენ წარმატებით გაიარეთ ავტორიზაცია",
+              "success"
+            ).then(() => {
+              localStorage.setItem("user", JSON.stringify(res.data.user));
+              localStorage.setItem("logged", true);
+              window.location.href = "/";
+            });
           }
           console.log(res.data);
         });

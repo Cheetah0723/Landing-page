@@ -192,7 +192,6 @@ export default function Footer() {
                 changeLanguageHandler("ge");
               }
             }}
-            target="_blank"
             class="footer__copy-link"
           >
             &#169; Beats. All right reserved | English
