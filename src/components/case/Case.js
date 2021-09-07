@@ -1,10 +1,11 @@
 import React from 'react'
-
+import { useTranslation } from 'react-i18next'
 export default function Case() {
+  const {t}=useTranslation()
   return (
     <>
       <section className="case section grid" id="case">
-        <h2 className="section__title section__title-gradient">ქეისი</h2>
+        <h2 className="section__title section__title-gradient">{t("CASETITLE")}</h2>
 
         <div className="case__container container grid">
           <div>
@@ -13,12 +14,10 @@ export default function Case() {
 
           <div className="case__data">
             <p className="case__description">
-              მარტივად გამოსაყენები და კომფორტული ქეისი, რომლითაც ყურსასმენების
-              შენახვას ყველგან მოახერხებ. უმაღლესი ხარისხის მატერიალი და სადა
-              დიზაინი გახდება თქვენი ყოველდღიურობის ნაწილი.
+              {t("CASETEXT")}
             </p>
             <a href="#" className="button button--flex">
-              <i className="ri-information-line button__icon"></i> ვრცლად
+              <i className="ri-information-line button__icon"></i> {t("CASEMOREINFO")}
             </a>
           </div>
         </div>

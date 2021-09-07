@@ -9,7 +9,22 @@ const resources = {
       CASE: "Case",
       PRODUCTS: "Products",
       SIGNIN: "Sign in",
-      OVERVIEW: "Overview"
+      OVERVIEW: "Overview",
+      OVERVIEWTEXT: "Enjoy award-winning Beats sound with wireless listening freedom and a sleek,streamlined design with comfortable padded earphones, delivering first-rate playback.",
+      ADDTOBAG: "Add to Bag",
+      SPECSTITLE: "Specs",
+      SPECSTITLE1:"Connection",
+      SPECSTITLE2:"Battery",
+      SPECSCHILDTITLE2:"Duration 40h",
+      SPECSTITLE3:"Load",
+      SPECSCHILDTITLE3:"Fast charge 4.2-AAC",
+      SPECSTITLE4:"Microphone",
+      SPECSCHILDTITLE4:"Supports Apple Siri and Google",
+      CASETITLE: "Case",
+      CASETEXT:"With a comfortable and adaptable case so that you can store it whenever you want, and keep your durability forever.",
+      CASEMOREINFO: "More info",
+      PRODUCTSTITLE: "Choose Your Style"
+
     },
   },
   ge: {
@@ -19,7 +34,21 @@ const resources = {
       CASE: "ქეისი",
       PRODUCTS: "პროდუქტები",
       SIGNIN: "შესვლა",
-      OVERVIEW: "მიმოხილვა"
+      OVERVIEW: "მიმოხილვა",
+      OVERVIEWTEXT: "მიიღე სიამოვნება მუსიკის მოსმენით უსადენო ყურსასმენების საშუალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს ყურს და მაღალი ხარისხის ხმა, არის თქვენი საყვარელი ჰიტების მოსმენის ყველაზე კომფორტული საშუალება.",
+      ADDTOBAG: "კალათაში დამატება",
+      SPECSTITLE: "მახასიათებლები",
+      SPECSTITLE1:"კავშირი",
+      SPECSTITLE2:"ელემენტი",
+      SPECSCHILDTITLE2:"ხანგრძლივობა 40სთ",
+      SPECSTITLE3:"დატენვა",
+      SPECSCHILDTITLE3:"სწრაფი დატენვა 4.2-AAC",
+      SPECSTITLE4:"მიკროფონი",
+      SPECSCHILDTITLE4:"აქვს მხარდაჭერა Apple Siri-ის და Google-ის",
+      CASETITLE: "ქეისი",
+      CASETEXT:"მარტივად გამოსაყენები და კომფორტული ქეისი, რომლითაც ყურსასმენების შენახვას ყველგან მოახერხებ. უმაღლესი ხარისხის მატერიალი და სადა დიზაინი გახდება თქვენი ყოველდღიურობის ნაწილი.",
+      CASEMOREINFO: "ვრცლად",
+      PRODUCTSTITLE: "აირჩიე სტილი"
     },
   },
 };

@@ -20,16 +20,11 @@ const {t}=useTranslation()
 
             <div className="home__footer">
               <h3 className="home__title-description">{t("OVERVIEW")}</h3>
-              <p className="home__description">
-                მიიღე სიამოვნება მუსიკის მოსმენით უსადენო ყურსასმენების
-                საშუალებით. არაჩვეულებრივი დიზაინი რომელიც მოერგება თქვენს ყურს
-                და მაღალი ხარისხის ხმა, არის თქვენი საყვარელი ჰიტების მოსმენის
-                ყველაზე კომფორტული საშუალება.
+              <p className="home__description">{t("OVERVIEWTEXT")}
               </p>
               <a href="#" className="button button--flex">
                 <span className="button--flex">
-                  <i className="ri-shopping-bag-line button__icon"></i> კალათაში
-                  დამატება
+                  <i className="ri-shopping-bag-line button__icon">{t("ADDTOBAG")}</i>
                 </span>
                 <span className="home__price">$299</span>
               </a>
