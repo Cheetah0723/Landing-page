@@ -157,8 +157,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       >
                         <span className="error__div__container__span">
                           {usernameExistError
-                            ? "მომხმარებელი არ არსებობს"
-                            : "სავალდებულო ველი"}
+                            ? t("USERNOTFOUND")
+                            : t("REQUIREDFILL")}
                         </span>
                       </div>
                     )}
@@ -207,8 +207,8 @@ export default function SigninContainer({ showSignin, handle }) {
                       >
                         <span className="error__div__container__span">
                           {passwordIncorrect
-                            ? "პაროლი არასწორია"
-                            : "სავალდებულო ველი"}
+                            ? t("PASSWORDINCORRECT")
+                            : t("REQUIREDFILL")}
                         </span>
                       </div>
                     )}

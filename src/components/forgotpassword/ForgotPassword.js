@@ -50,8 +50,36 @@ export default function ForgotPassword() {
                   </svg>
                 </a>
                 დაგავიწყდა მონაცემები
-              </div>
+              </div>       
             </div>
+            <div className="signup__block-2elements">
+            <div className="form__div">
+                    <input
+                      type="text"
+                      autoCapitalize="off"
+                      autoComplete="off"
+                      autoCorrect="off"
+                      className='form__input '
+                      placeholder=" "
+                    />
+                    <label
+                      for=""
+                      className='form__label'
+                    >
+                        შეიყვანეთ ელ.ფოსტა
+                    </label>
+                  </div>
+                  </div>
+                  <div
+                  className="form__buttonContainer signup__button-box"
+                  style={{ marginTop: '35px' }}
+                >
+                  <button
+                    className="form__signinButton signup__button1"
+                  >
+                    გაგრძელება
+                  </button>
+                </div>{' '}
           </form>
         </div>
       </div>
