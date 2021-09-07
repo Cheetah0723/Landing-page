@@ -4,7 +4,8 @@ import { ApplicationContext } from "../../context/application/ApplicationContext
 
 export default function Products() {
   const { t } = useTranslation();
-  const { products } = React.useContext(ApplicationContext);
+  const { products, setShowSignin, showSignin } =
+    React.useContext(ApplicationContext);
   return (
     <>
       {console.log(products)}
@@ -23,7 +24,16 @@ export default function Products() {
                   <h3 className="products__title">{item.title}</h3>
                   <span className="products__price">${item.price}</span>
 
-                  <button className="button button--flex products__button">
+                  <button
+                    className="button button--flex products__button"
+                    onClick={() => {
+                      const logged = localStorage.getItem("logged");
+                      if (!logged) {
+                        setShowSignin(!showSignin);
+                        document.body.style.overflowY = "hidden";
+                      }
+                    }}
+                  >
                     <i className="ri-shopping-bag-line button__icon"></i>
                   </button>
                 </div>

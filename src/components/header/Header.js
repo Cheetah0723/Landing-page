@@ -2,10 +2,11 @@ import React from "react";
 import { HeaderFixtures } from "../../fixtures/header/HeaderFixtures";
 import SigninContainer from "../signin/SigninContainer";
 import { useTranslation } from "react-i18next";
+import { ApplicationContext } from "../../context/application/ApplicationContext";
 
 export default function Header() {
   const { t } = useTranslation();
-  const [showSignin, setShowSignin] = React.useState(false);
+  const { showSignin, setShowSignin } = React.useContext(ApplicationContext);
   const renderClassNames = (item) => {
     if (item.route == window.location.hash) {
       return "nav__link active-link";

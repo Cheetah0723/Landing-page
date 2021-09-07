@@ -12,6 +12,7 @@ function App() {
   const [application, setApplication] = React.useState([]);
   const [notification, setNotification] = React.useState([]);
   const [products, setProducts] = React.useState([]);
+  const [showSignin, setShowSignin] = React.useState(false);
   React.useEffect(() => {
     axios.post(`${env.host}/api/sponsors`).then((res) => {
       setApplication(res.data.data);
@@ -42,6 +43,8 @@ function App() {
           setNotification,
           products,
           setProducts,
+          showSignin,
+          setShowSignin,
         }}
       >
         <BrowserRouter>
