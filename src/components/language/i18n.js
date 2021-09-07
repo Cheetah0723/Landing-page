@@ -32,7 +32,7 @@ const resources = {
       PASSWORDRECOVER: "Forgot password?",
       LOGIN: "Log in",
       REGISTER: "Registration",
-      USERNOTFOUND: "User not fount",
+      USERNOTFOUND: "User not found",
       REQUIREDFILL: "Required fill",
       REGFIRSTNAME: "First name",
       REGLASTNAME: "Last name",
@@ -51,6 +51,8 @@ const resources = {
       PROVIDES: "Provides",
       EMAILINPUT: "E-mail",
       SUBSCRIBE: "Subscribe",
+      BUY: "Shop now",
+      PASSWORDINCORRECT: "Password is incorrect",
     },
   },
   ge: {
@@ -101,6 +103,8 @@ const resources = {
       PROVIDES: "პროგრამული უზრუნველოფა",
       EMAILINPUT: "ელ.ფოსტა",
       SUBSCRIBE: "გამოწერა",
+      BUY: "ყიდვა",
+      PASSWORDINCORRECT: "პაროლი არასწორია",
     },
   },
 };
