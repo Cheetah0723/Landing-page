@@ -22,6 +22,11 @@ router.route("/forgot-password").put(async (req, res) => {
       html: `<h2>Please click on given link to reset your password</h2>
         <p>http://localhost:3000/authentication/activate/${token}</p>`,
     };
+    return user.updateOne({ resetLink: token }, (err, success) => {
+      if (err) {
+        return res.status(400).json({ error: "Reset password link error" });
+      }
+    });
   });
 });
 
