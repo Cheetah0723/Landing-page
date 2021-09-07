@@ -81,6 +81,11 @@ body.en * {
   font-family: "Poppins", sans-serif !important;
 }
 
+body.en [class^="ri-"],
+[class*=" ri-"] {
+  font-family: "remixicon" !important;
+}
+
 body.en .nav__list li a,
 .footer__link {
   font-size: inherit !important;
