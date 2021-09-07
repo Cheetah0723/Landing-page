@@ -6,6 +6,7 @@ import { ApplicationContext } from "./context/application/ApplicationContext";
 import env from "./application/environment/env.json";
 import SignUpPages from "./pages/signup/SignUpPages";
 import ForgotPasswordPages from "./pages/forgotpassword/ForgotPasswordPages";
+
 function App() {
   const [application, setApplication] = React.useState([]);
   const [notification, setNotification] = React.useState([]);
