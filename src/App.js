@@ -5,6 +5,7 @@ import axios from "axios";
 import { ApplicationContext } from "./context/application/ApplicationContext";
 import env from "./application/environment/env.json";
 import SignUpPages from "./pages/signup/SignUpPages";
+import ForgotPasswordPages from "./pages/forgotpassword/ForgotPasswordPages";
 function App() {
   const [application, setApplication] = React.useState([]);
   const [notification, setNotification] = React.useState([]);
@@ -41,6 +42,11 @@ function App() {
           <Switch>
             <Route path="/" exact component={IndexPages} />
             <Route path="/signup" exact component={SignUpPages} />
+            <Route
+              path="/forgot-password"
+              exact
+              component={ForgotPasswordPages}
+            />
           </Switch>
         </BrowserRouter>
       </ApplicationContext.Provider>
