@@ -4,25 +4,18 @@ const Products = require("../../schema/products/ProductSchema");
 router.route("/products").get(async (req, res) => {
   try {
     const products = await Products.find();
-    res.json({ products });
+    let data = [];
+    products.map((item) => {
+      data.push({
+        title: item.title,
+        image: item.image,
+        price: item.price,
+      });
+    });
+    res.json({ data });
   } catch (err) {
     res.json({ message: err });
   }
 });
-
-// router.route('/products').post(async (req, res) => {
-//     const Product = new Products({
-//         title: req.body.title,
-//         price: req.body.price,
-//         image: req.body.image
-//     });
-
-//     try {
-//         const savedProduct = await Product();
-//         res.json({ products: savedProduct, success: true });
-//     } catch (err) {
-//         res.json({ message: err });
-//     }
-// });
 
 module.exports = router;
