@@ -41,7 +41,8 @@ router.route("/forgotPassword/submit").post(async (req, res) => {
 
       result.dateOfBirth.map((item) => {
         if (item.day == day && item.month == month && item.year == year) {
-          console.log(hashedPassword);
+          result.password = hashedPassword;
+          result.save();
         } else {
           res.json({ message: "Information is invalid", success: false });
         }
@@ -49,7 +50,7 @@ router.route("/forgotPassword/submit").post(async (req, res) => {
       });
     });
   } else {
-    // password logic
+    // future we need here password logic
   }
 });
 
