@@ -15,6 +15,10 @@ export default function Footer() {
   const [spinner, setSpinner] = React.useState(false);
   const [date, setDate] = React.useState("");
   const inputRef = useRef();
+  const changeLanguageHandler = (lang) => {
+    localStorage.setItem("lang", lang);
+    window.location.reload();
+  };
   React.useEffect(() => {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
@@ -177,8 +181,13 @@ export default function Footer() {
         </div>
 
         <p class="footer__copy">
-          <a href="#" target="_blank" class="footer__copy-link">
-            &#169; Beats. All right reserved
+          <a
+            href="#"
+            onClick={() => changeLanguageHandler("ge")}
+            target="_blank"
+            class="footer__copy-link"
+          >
+            &#169; Beats. All right reserved | English
           </a>
         </p>
       </footer>

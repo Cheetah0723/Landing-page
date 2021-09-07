@@ -1,8 +1,10 @@
 import React from "react";
 import { HeaderFixtures } from "../../fixtures/header/HeaderFixtures";
 import SigninContainer from "../signin/SigninContainer";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
+  const { t } = useTranslation();
   const [showSignin, setShowSignin] = React.useState(false);
   const renderClassNames = (item) => {
     if (item.route == window.location.hash) {
@@ -39,7 +41,7 @@ export default function Header() {
                   <>
                     <li className="nav__item">
                       <a href={item.route} className={renderClassNames(item)}>
-                        {item.text}
+                        {t(`${item.text}`)}
                       </a>
                     </li>
                   </>
@@ -57,7 +59,9 @@ export default function Header() {
                   }
                 }}
               >
-                {localStorage.getItem("logged") == "true" ? "გასვლა" : "შესვლა"}
+                {localStorage.getItem("logged") == "true"
+                  ? "გასვლა"
+                  : t("SIGNIN")}
               </button>
             </ul>
 
