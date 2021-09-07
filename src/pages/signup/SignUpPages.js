@@ -147,6 +147,8 @@ function SignUpPages() {
         ).then(() => {
           localStorage.setItem("user", JSON.stringify(res.data.user));
           localStorage.setItem("logged", true);
+          localStorage.setItem("header", res.data.access_token);
+          console.log(res.data);
           window.location.href = "/";
         });
       });
