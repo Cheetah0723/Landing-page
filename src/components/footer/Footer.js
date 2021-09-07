@@ -183,7 +183,13 @@ export default function Footer() {
         <p class="footer__copy">
           <a
             href="#"
-            onClick={() => changeLanguageHandler("ge")}
+            onClick={() => {
+              if (localStorage.getItem("lang") == "ge") {
+                changeLanguageHandler("en");
+              } else {
+                changeLanguageHandler("ge");
+              }
+            }}
             target="_blank"
             class="footer__copy-link"
           >
