@@ -3,6 +3,7 @@ import { HeaderFixtures } from "../../fixtures/header/HeaderFixtures";
 import SigninContainer from "../signin/SigninContainer";
 import { useTranslation } from "react-i18next";
 import { ApplicationContext } from "../../context/application/ApplicationContext";
+import { identification } from "../../hooks/IdentificationHooks";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -48,7 +49,36 @@ export default function Header() {
                   </>
                 );
               })}
-              <button
+              {identification(
+                <button
+                  className="nav__btn"
+                  onClick={() => {
+                    localStorage.clear();
+                    window.location.reload();
+                  }}
+                >
+                  გასვლა
+                </button>,
+                <button
+                  className="nav__btn"
+                  onClick={() => {
+                    localStorage.clear();
+                    window.location.reload();
+                  }}
+                >
+                  ადმინ პანელი
+                </button>,
+                <button
+                  className="nav__btn"
+                  onClick={() => {
+                    setShowSignin(!showSignin);
+                    document.body.style.overflowY = "hidden";
+                  }}
+                >
+                  შესვლა
+                </button>
+              )}
+              {/* <button
                 className="nav__btn"
                 onClick={() => {
                   if (localStorage.getItem("logged") == "true") {
@@ -63,7 +93,7 @@ export default function Header() {
                 {localStorage.getItem("logged") == "true"
                   ? "გასვლა"
                   : t("SIGNIN")}
-              </button>
+              </button> */}
             </ul>
 
             <div class="nav__close" id="nav-close">
