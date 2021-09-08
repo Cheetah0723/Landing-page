@@ -111,16 +111,13 @@ const resources = {
       SUBSCRIBE: "გამოწერა",
       BUY: "ყიდვა",
       PASSWORDINCORRECT: "პაროლი არასწორია",
-<<<<<<< Updated upstream
       USERNOTFOUND: "მომხმარებელი არ არსებობს",
-=======
       FORGOTDATA: "დაგავიწყდა მონაცემები",
       CONTINUE: "გაგრძელება",
       MALE:"მამრობითი",
       FEMALE:"მდედრობითი",
       CUSTOM:"მორგებული",
       FINISHREGISTRATION:"რეგისტრაციის დასრულება"
->>>>>>> Stashed changes
     },
   },
 };

@@ -672,11 +672,7 @@ function SignUpPages() {
                             name="fav_language"
                             value="მამრობითი"
                           />
-<<<<<<< Updated upstream
-                            <label for="male">მამრობითი</label> {" "}
-=======
                             <label for="male">{t("MALE")}</label> {' '}
->>>>>>> Stashed changes
                         </div>
                         <div>
                           <input
