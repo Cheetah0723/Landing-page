@@ -42,7 +42,7 @@ app.use("/api", ForgotPassword);
 const CheckIfUser = require("./router/checkif/user/CheckIfUserRouter");
 app.use("/api", CheckIfUser);
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3002;
 
 app.listen(PORT, () => {
   console.log(`server listen at ${PORT}`);
