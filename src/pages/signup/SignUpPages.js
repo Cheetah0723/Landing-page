@@ -515,7 +515,7 @@ function SignUpPages() {
                     className="form__signinButton signup__button"
                     onClick={() => identificationFirstPage()}
                   >
-                    განაგრძე რეგისტრაცია
+                    {t("CONTINUE")}
                   </button>
                 </div>
               </>
@@ -672,7 +672,11 @@ function SignUpPages() {
                             name="fav_language"
                             value="მამრობითი"
                           />
+<<<<<<< Updated upstream
                             <label for="male">მამრობითი</label> {" "}
+=======
+                            <label for="male">{t("MALE")}</label> {' '}
+>>>>>>> Stashed changes
                         </div>
                         <div>
                           <input
@@ -681,7 +685,7 @@ function SignUpPages() {
                             name="fav_language"
                             value="მდედრობითი"
                           />
-                            <label for="female">მდედრობითი</label>
+                            <label for="female">{t("FEMALE")}</label>
                         </div>
                         <div>
                           <input
@@ -690,7 +694,7 @@ function SignUpPages() {
                             name="fav_language"
                             value="მორგებული"
                           />
-                            <label for="flexible">მორგებული</label>
+                            <label for="flexible">{t("CUSTOM")}</label>
                         </div>
                         {genderError && (
                           <div className="error__div__container">
@@ -714,7 +718,7 @@ function SignUpPages() {
                     className="form__signinButton signup__button1"
                     onClick={() => sendInformation()}
                   >
-                    რეგისტრაციის დასრულება
+                    {t("FINISHREGISTRATION")}
                   </button>
                 </div>{" "}
                 <div className="form__buttonContainer signup__button-box">

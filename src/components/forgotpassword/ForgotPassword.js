@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ForgotPassword.css";
-
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import axios from 'axios';
+import env from './../../application/environment/env.json';
 export default function ForgotPassword() {
+  const { t } = useTranslation();
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const emailRef = useRef()
+  const [emailInputError, setEmailInputError] = useState(false)
+  const SentEmail = () => {  
+   if (!email) {
+    setEmailError(true)
+    emailRef.current.focus()
+    }else if (
+    !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email,
+    )
+  ) {
+    setEmailInputError(true)
+  }
+  }
   return (
+    
     <>
       <div className="forgotPassword__container">
         <div className="forgotPassword__content">
-          <form>
+          <form onSubmit={e=>e.preventDefault()}>
             <div class="signin__head-header signup__head">
               <div class="signin__head-header-wrapper">
                 <a
@@ -49,7 +70,7 @@ export default function ForgotPassword() {
                     </g>
                   </svg>
                 </a>
-                დაგავიწყდა მონაცემები
+                {t("FORGOTDATA")}
               </div>       
             </div>
             <div className="signup__block-2elements">
@@ -59,26 +80,65 @@ export default function ForgotPassword() {
                       autoCapitalize="off"
                       autoComplete="off"
                       autoCorrect="off"
-                      className='form__input '
+                      className={
+                        emailError || emailInputError
+                          ? 'form__input error__input__container'
+                          : 'form__input'
+                      }
+                      ref={emailRef}
                       placeholder=" "
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value)
+                        if (email.length < 0) {
+                          setEmailError(true)
+                        } else {
+                          setEmailError(false)
+                          setEmailInputError(false)
+                        }
+                      }}
                     />
                     <label
                       for=""
-                      className='form__label'
+                      className={
+                        emailError || emailInputError
+                          ? 'form__label error__label__container'
+                          : 'form__label'
+                      }
                     >
-                        შეიყვანეთ ელ.ფოსტა
+                      {t('EMAILINPUT')}
                     </label>
+                    {emailError && (
+                      <div className="error__div__container">
+                        <span className="error__div__container__span">
+                          {t('REQUIREDFILL')}
+                        </span>
+                      </div>
+                    )}
+                    {emailInputError && (
+                      <div className="error__div__container">
+                        <span
+                          className="error__div__container__span"
+                          style={{ marginLeft: '5px', width: '200px' }}
+                        >
+                          არასწორი ფორმატი
+                        </span>
+                      </div>
+                    )}
                   </div>
                   </div>
                   <div
                   className="form__buttonContainer signup__button-box"
                   style={{ marginTop: '35px' }}
                 >
-                  <button
-                    className="form__signinButton signup__button1"
-                  >
-                    გაგრძელება
-                  </button>
+                  {/* <Link to="/forgotpasswordv2"> */}
+                    <button
+                      className="form__signinButton signup__button1"
+                      onClick={() => SentEmail()}
+                    >
+                      {t("CONTINUE")}
+                    </button>
+                  {/* </Link> */}
                 </div>{' '}
           </form>
         </div>

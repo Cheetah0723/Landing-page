@@ -53,6 +53,12 @@ const resources = {
       SUBSCRIBE: "Subscribe",
       BUY: "Shop now",
       PASSWORDINCORRECT: "Password is incorrect",
+      FORGOTDATA: "Password Recover",
+      CONTINUE: "Continue",
+      MALE:"Male",
+      FEMALE:"Female",
+      CUSTOM:"Custom",
+      FINISHREGISTRATION:"End of registration"
     },
   },
   ge: {
@@ -105,7 +111,16 @@ const resources = {
       SUBSCRIBE: "გამოწერა",
       BUY: "ყიდვა",
       PASSWORDINCORRECT: "პაროლი არასწორია",
+<<<<<<< Updated upstream
       USERNOTFOUND: "მომხმარებელი არ არსებობს",
+=======
+      FORGOTDATA: "დაგავიწყდა მონაცემები",
+      CONTINUE: "გაგრძელება",
+      MALE:"მამრობითი",
+      FEMALE:"მდედრობითი",
+      CUSTOM:"მორგებული",
+      FINISHREGISTRATION:"რეგისტრაციის დასრულება"
+>>>>>>> Stashed changes
     },
   },
 };
