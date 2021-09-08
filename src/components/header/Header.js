@@ -75,7 +75,7 @@ export default function Header() {
                     document.body.style.overflowY = "hidden";
                   }}
                 >
-                  შესვლა
+                  {t("LOGIN")}
                 </button>
               )}
               {/* <button
